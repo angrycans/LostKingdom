@@ -44,29 +44,31 @@ namespace ACANS
 		public Room(int w, int h, int _base, int radix, int c_num)
 		{
 
-			Random.seed = 1;
+			//Random.seed = 1;
 			this.pcgrid_width = w;
 			this.pcgrid_height = h;
 			this.room_width = Random.Range(0,radix) + _base;
 			this.room_height = Random.Range(0,radix) + _base;
 			this.room_x1 = Random.Range(0, (this.pcgrid_width - this.room_width));
 			this.room_y1 = Random.Range(0, (this.pcgrid_height - this.room_height));
-			this.room_x2 = this.room_x1
-							+ (this.room_width - 1);
-			this.room_y2 = this.room_y1
-							+ (this.room_height - 1);
+			this.room_x2 = this.room_x1+ (this.room_width - 1);
+			this.room_y2 = this.room_y1+ (this.room_height - 1);
 			this.room_x = this.room_x1 + (int)((this.room_x2 - this.room_x1) * 0.5);
-			;
 			this.room_y = this.room_y1 + (int)((this.room_y2 - this.room_y1) * 0.5);
-			;
-			this.wall_x2 = (this.room_x2 + 1);
-			this.wall_y1 = (this.room_y1 - 1);
-			this.wall_y2 = (this.room_y2 + 1);
+			this.wall_x1 = this.room_x1 - 1;
+			this.wall_x2 = this.room_x2 + 1;
+			this.wall_y1 = this.room_y1 - 1;
+			this.wall_y2 = this.room_y2 + 1;
 			this.opening_num = Random.Range(1, (c_num + 1));
 			//  Open up doorway
 			this.opening = new int[this.opening_num,3];
 		
-			this.initDoors();
+
+
+
+			Log.info(pcgrid_width,pcgrid_height,room_width,room_height,room_x1,room_y2,room_x2,room_y2,room_x,room_y,wall_x1,wall_x2,wall_y1,wall_y2,opening_num);
+		
+			initDoors();
 		}
 
 		public void initDoors()

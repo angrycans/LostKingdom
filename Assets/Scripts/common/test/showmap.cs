@@ -16,9 +16,15 @@ public class showmap : MonoBehaviour
   // Use this for initialization
   void Start()
   {
-    GetPrefab("");
-    testJson();
-    Debug.Log("show map");
+		//GetPrefab("");
+		//testJson();
+		Debug.Log("show test pcg");
+
+		ACANS.test t = new ACANS.test();
+	//	t.
+
+
+
   }
 
   // Update is called once per frame

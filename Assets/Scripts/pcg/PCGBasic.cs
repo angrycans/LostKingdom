@@ -2,6 +2,8 @@
 using System.Collections;
 
 using AcansUtils;
+using System.Text;
+
 namespace ACANS
 {
 	public class PCGBasic : PCG
@@ -57,11 +59,8 @@ namespace ACANS
 			//  Default 9
 			this.room_max = r_max;
 			//  Default 16
-			this.room_base = (int)(((this.room_min + 1)
-										   * 0.5));
-			this.room_radix = (int)((((this.room_max - this.room_min)
-											 * 0.5)
-											+ 1));
+			this.room_base = (int)(((this.room_min + 1)* 0.5));
+			this.room_radix = (int)((((this.room_max - this.room_min)* 0.5)+ 1));
 			switch (this.room_type)
 			{
 				case 0:
@@ -90,6 +89,8 @@ namespace ACANS
 			this.corridor_num = c_num;
 			this.corridor_weight = c_weight;
 			this.turning_weight = t_weight;
+
+			Log.info("room_num=", room_num);
 		}
 
 
@@ -98,21 +99,26 @@ namespace ACANS
 			//  Init grid 
 			this.initRooms();
 			//  Initialize rooms
-			this.initCorridors();
+			//this.initCorridors();
 			//  Initialize corridors
 		}
 
 		public void initRooms()
 		{
 			this.rooms = new ArrayList();
+			//room_num = 1;
 			//  New room arraylist
-			for (int n = 0; (n < this.room_num); n++)
+
+			//Log.info("room_num",this.room_num);
+			for (int n = 0; n < this.room_num; n++)
 			{
 				this.room_blocked = false;
 				//  Unblock
 				Room rm = new Room(pcgrid_width, pcgrid_height, this.room_base, this.room_radix, this.corridor_num);
 				//  Create new room
 				this.room_blocked = this.blockRoom(rm);
+
+
 				//  Check if room is blocked
 				if (this.room_blocked)
 				{
@@ -129,6 +135,8 @@ namespace ACANS
 
 				}
 				else {
+
+					//Log.info("room_blocked",this.room_blocked);
 					this.rooms.Add(rm);
 					//  Create room
 					for (int j = rm.room_y1; (j <= rm.room_y2); j++)
@@ -143,12 +151,12 @@ namespace ACANS
 					//  Create room walls
 					for (int i = rm.wall_x1; (i <= rm.wall_x2); i++)
 					{
-						if ((pcgrid[i, rm.wall_y1] != 1))
+						if (pcgrid[i, rm.wall_y1] != 1)
 						{
 							pcgrid[i, rm.wall_y1] = 2;
 						}
 
-						if ((pcgrid[i, rm.wall_y2] != 1))
+						if (pcgrid[i, rm.wall_y2] != 1)
 						{
 							pcgrid[i, rm.wall_y2] = 2;
 						}
@@ -157,12 +165,12 @@ namespace ACANS
 
 					for (int j = rm.wall_y1; (j <= rm.wall_y2); j++)
 					{
-						if ((pcgrid[rm.wall_x1, j] != 1))
+						if (pcgrid[rm.wall_x1, j] != 1)
 						{
 							pcgrid[rm.wall_x1, j] = 2;
 						}
 
-						if ((pcgrid[rm.wall_x2, j] != 1))
+						if (pcgrid[rm.wall_x2, j] != 1)
 						{
 							pcgrid[rm.wall_x2, j] = 2;
 						}
@@ -179,6 +187,19 @@ namespace ACANS
 
 					}
 
+					/*
+					var sb = new StringBuilder(); 
+					sb.Append("\n");
+					for (int i = 0; i < pcgrid.GetLength(0); i++)
+					{
+						for (int j = 0; j < pcgrid.GetLength(1); j++)
+						{
+							sb.Append( pcgrid[i, j] );
+						}
+						sb.Append("\n");
+					}
+					Log.info(sb.ToString());
+*/
 				}
 
 			}
