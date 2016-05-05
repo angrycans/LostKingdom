@@ -23,7 +23,7 @@ namespace ACANS{
 			}
 
 			PCGBasic pcg_b = new PCGBasic();
-			pcg_b.updateParam(40, 30, 0 ,9, 16 ,1,4 ,4 );
+			pcg_b.updateParam(40, 30,3 ,9, 16 ,1,4 ,4 );
 			pcg_b.generatePCGBasic(grid);
 
 
@@ -39,9 +39,6 @@ namespace ACANS{
 			}
 			Log.info(sb.ToString());
 			//Room r = new Room(40,30,5,4,2);
-
-
-
 
 		}
 	}
