@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
-using UnityEditor;
+
 using LitJson;
 using System.Text.RegularExpressions;
 
@@ -20,9 +20,56 @@ public class showmap : MonoBehaviour
 		//testJson();
 		Debug.Log("show test pcg");
 
-		ACANS.test t = new ACANS.test();
+		ACANS.test map = new ACANS.test();
 	//	t.
 
+
+		for (int i = 0; i < map.grid.GetLength(0); i++)
+		{
+			for (int j = 0; j < map.grid.GetLength(1); j++)
+			{
+				//sb.Append( grid[i, j] );
+
+				GameObject g = new GameObject();
+				tk2dSpriteCollectionData currentCollectionData =
+					Resources.Load("tk2dSpriteData/map_blue_sourceData/map_blue_source", typeof(tk2dSpriteCollectionData)) as
+					tk2dSpriteCollectionData;
+				tk2dSprite sprite = tk2dSprite.AddComponent(g, currentCollectionData, "floor_01");
+				//sprite.transform.position = new Vector3(129/2, 158/2, 1);
+				sprite.transform.position = new Vector3(129/2+(120*i), 158/2+(120*j), 1);
+
+
+
+				GameObject g2= new GameObject();
+				tk2dTextMesh textmesh=g2.AddComponent<tk2dTextMesh>();	
+				GameObject fontData = Resources.Load("FontData/font_01data") as GameObject;
+				textmesh.font = fontData.GetComponent<tk2dFontData>();
+
+				textmesh.text = "100ad";
+				textmesh.Commit();
+
+				//g.AddComponent
+				g2.transform.parent = g.transform;
+				textmesh.transform.position.Set( sprite.transform.position.x,sprite.transform.position.y ,-30);
+
+
+
+				//tk2dSprite.
+
+
+				//Log.info("g",g.GetComponents());
+				/*
+				textmesh.font = fontData.GetComponent<tk2dFontData>();
+
+				textmesh.text = "100ad";
+
+				textmesh.transform.parent = sprite.transform;
+
+			*/
+
+			}
+			//sb.Append("\n");
+		}
 
 
   }

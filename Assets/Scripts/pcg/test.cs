@@ -6,6 +6,7 @@ namespace ACANS{
 	public class test
 	{
 
+		public byte[,] grid;
 		 
 		public test()
 		{
@@ -13,7 +14,7 @@ namespace ACANS{
 			var grid_width = 40;
 			var grid_height = 30;
 
-		    byte[,] grid;
+		   // byte[,] grid;
 			grid = new byte[grid_width,grid_height]; 
 
 			for (int j = 0; j < grid_height; j++) {
