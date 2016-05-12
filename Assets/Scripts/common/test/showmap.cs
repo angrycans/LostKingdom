@@ -20,6 +20,30 @@ public class showmap : MonoBehaviour
 		//testJson();
 		Debug.Log("show test pcg");
 
+
+		GameObject g = new GameObject();
+		tk2dSpriteCollectionData currentCollectionData =
+			Resources.Load("tk2dSpriteData/map_blue_sourceData/map_blue_source", typeof(tk2dSpriteCollectionData)) as
+			                 tk2dSpriteCollectionData;
+		tk2dSprite sprite = tk2dSprite.AddComponent(g, currentCollectionData, "floor_01");
+		//sprite.transform.position = new Vector3(129/2, 158/2, 1);
+		sprite.transform.position = new Vector3(320, 580, 1);
+
+		GameObject g2= new GameObject();
+		tk2dTextMesh textmesh=g2.AddComponent<tk2dTextMesh>();	
+		GameObject fontData = Resources.Load("FontData/font_01data") as GameObject;
+		textmesh.font = fontData.GetComponent<tk2dFontData>();
+
+		textmesh.text = "10000";
+		textmesh.anchor = TextAnchor.MiddleCenter;
+		//textmesh.Commit();
+
+		g2.transform.parent = g.transform;
+		g2.transform.localPosition=new Vector3(0, 0, -1);
+		//g.AddComponent(g2);
+
+
+		/**	、
 		ACANS.test map = new ACANS.test();
 	//	t.
 
@@ -58,18 +82,20 @@ public class showmap : MonoBehaviour
 
 
 				//Log.info("g",g.GetComponents());
-				/*
-				textmesh.font = fontData.GetComponent<tk2dFontData>();
+			
+				//textmesh.font = fontData.GetComponent<tk2dFontData>();
 
-				textmesh.text = "100ad";
+				//textmesh.text = "100ad";
 
-				textmesh.transform.parent = sprite.transform;
+				//textmesh.transform.parent = sprite.transform;
 
-			*/
+		
 
 			}
-			//sb.Append("\n");
 		}
+	**/
+			//sb.Append("\n");
+
 
 
   }

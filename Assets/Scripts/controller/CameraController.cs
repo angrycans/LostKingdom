@@ -87,7 +87,8 @@ namespace ACANS
 		public const float ORTHOGRAPHICSIZECBELOW         = 0.5f;
 		public const float ORTHOGRAPHICSIZEDEFAULT         = 1.0f;
 		public const float PINCHSCALEFACTOR                      = 0.01f;
-
+		public const float PINCHSCALEFACTOR_MIN                      = 0.2f;
+		public const float PINCHSCALEFACTOR_MAX                      = 2.0f;
 
 
 
@@ -105,8 +106,10 @@ namespace ACANS
 
 				if (gesture.Delta > 0){
 					Camera.main.GetComponent<tk2dCamera> ().ZoomFactor += gesture.Delta * PINCHSCALEFACTOR;
+					Camera.main.GetComponent<tk2dCamera>().ZoomFactor = Mathf.Min(Camera.main.GetComponent<tk2dCamera> ().ZoomFactor,PINCHSCALEFACTOR_MAX);
 				}else{
 					Camera.main.GetComponent<tk2dCamera> ().ZoomFactor += gesture.Delta * PINCHSCALEFACTOR;
+					Camera.main.GetComponent<tk2dCamera>().ZoomFactor = Mathf.Max(Camera.main.GetComponent<tk2dCamera> ().ZoomFactor,PINCHSCALEFACTOR_MIN);
 				}
 				//Camera.main.GetComponent<tk2dCamera> ().ZoomFactor = gesture.Delta * PINCHSCALEFACTOR;
 				/*
