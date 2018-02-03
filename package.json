@@ -1,0 +1,24 @@
+{
+  "name": "lostkingdom",
+  "version": "1.0.0",
+  "description": "Hello world new project template.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angrycans/LostKingdom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/angrycans/LostKingdom/issues"
+  },
+  "homepage": "https://github.com/angrycans/LostKingdom#readme",
+  "dependencies": {
+
+    "es6-promise": "^4.2.4"
+
+  }
+}

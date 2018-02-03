@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2017",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
+    "outDir": "../assets/Script/kits/libs",
+    "declaration": true,
+    "declarationDir": "../assets/Script/kits/typings"
+  }
+}

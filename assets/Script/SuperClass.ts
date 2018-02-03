@@ -1,4 +1,5 @@
-const {ccclass, property, executionOrder} = cc._decorator;
+
+const { ccclass, property, executionOrder } = cc._decorator;
 
 @ccclass
 @executionOrder(1)
