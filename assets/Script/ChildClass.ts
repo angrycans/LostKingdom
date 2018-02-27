@@ -1,7 +1,10 @@
 
 import { acans } from "./kits"
 import SuperClass from "./SuperClass";
+
+import TMX from './games/tmx/index'
 const { ccclass } = cc._decorator;
+
 
 @ccclass
 export default class ChildClass extends SuperClass {
@@ -9,6 +12,11 @@ export default class ChildClass extends SuperClass {
         return new Promise<string>((resolve, reject) => {
             setTimeout(() => {
                 let a = new acans.a();
+                console.log("tmx 3=>", TMX);
+
+                let tmx = new TMX();
+                tmx.test()
+
                 fetch('http://www.baidu.com', { mode: 'no-cors' })
                     .then(function (response) {
                         console.log(response);
