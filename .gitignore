@@ -6,7 +6,6 @@ library/
 temp/
 local/
 build/
-node_modules/
 
 #/////////////////////////////////////////////////////////////////////////////
 # Logs and databases
@@ -65,3 +64,4 @@ quick_gen_project_*_autogen.sh.meta
 # VS Code
 #//////////////////////////
 
+.vscode/

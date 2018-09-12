@@ -3,6 +3,7 @@
   "appSecret": "",
   "encryptJs": true,
   "excludeScenes": [],
+  "fb-instant-games": {},
   "includeAnySDK": false,
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
@@ -20,14 +21,20 @@
   },
   "packageName": "org.cocos2d.helloworld",
   "privateKey": "",
-  "renderMode": "0",
-  "startScene": "2d2f792f-a40c-49bb-a189-ed176a246e49",
-  "title": "LostKingdom",
-  "webOrientation": "auto",
-  "wechatgame": {
-    "appid": "",
+  "qqplay": {
+    "REMOTE_SERVER_ROOT": "",
     "orientation": "portrait"
   },
-  "xxteaKey": "2c2517ec-b47e-4a",
+  "startScene": "8ff4bc13-86b8-4bb5-b4c0-4ed76b8ba805",
+  "title": "LK",
+  "webOrientation": "auto",
+  "wechatgame": {
+    "REMOTE_SERVER_ROOT": "",
+    "appid": "wx6ac3f5090a6b99c5",
+    "isSubdomain": false,
+    "orientation": "portrait",
+    "subContext": ""
+  },
+  "xxteaKey": "75cdc3f2-2705-4f",
   "zipCompressJs": true
 }

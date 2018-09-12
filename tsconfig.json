@@ -8,10 +8,12 @@
       "es2015.promise",
       "es2017"
     ],
-    "target": "es5",
+    "target": "es6",
     "allowJs": true,
     "experimentalDecorators": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "./assets/Script",
+    "outDir": "./dist/",
   },
   "exclude": [
     "node_modules",
