@@ -1,26 +1,37 @@
 import Async from 'async'
-
+import { shake } from 'game/effects'
 
 const { ccclass, property } = cc._decorator;
 @ccclass
 export default class Home extends cc.Component {
 
-    // LIFE-CYCLE CALLBACKS:
+    @property(cc.Button)
+    button: cc.Button = null
+
+    @property(cc.Button)
+    buttonOne: cc.Button = null
+
+    @property(cc.Button)
+    buttonTwo: cc.Button = null
+
     @property(cc.Node)
     rootNode: cc.Node = null;
+
+    home_width: number;
+    home_height: number;
     assets = { img: {} }
 
     config = {
         "background": [
-            { name: "home/bg1", anchor: [0.5, 0], x: 0, y: 0, parallax: 1 },
-            { name: "home/bg2", anchor: [0.5, 0.5], x: 0, y: 340, parallax: 1 },
-            { name: "home/bg3", anchor: [0.5, 0.5], x: 0, y: 330, parallax: 1 },
-            { name: "home/bg4", anchor: [0.5, 0.5], x: 0, y: 300, parallax: 1 },
-            { name: "home/bg5", anchor: [0.5, 0], x: 0, y: 140, parallax: 1 },
-            { name: "home/bg6", anchor: [0.5, 0], x: 0, y: 150, parallax: 1 },
-            { name: "home/bg7", anchor: [0.5, 0], x: 0, y: 250, parallax: 1 },
-            { name: "home/bg8", anchor: [1, 0], x: 800, y: -50, parallax: 1 },
-            { name: "home/bg9", anchor: [0, 0], x: -900, y: -150, parallax: 1 },
+            { name: "home/bg1", anchor: [0.5, 0], x: 0, y: 0, parallax: 0.4, scale: true },
+            { name: "home/bg2", anchor: [0.5, 0.5], x: 0, y: 340, parallax: 0.8, scale: true },
+            { name: "home/bg3", anchor: [0.5, 0.5], x: 0, y: 330, parallax: 1.2, scale: true },
+            { name: "home/bg4", anchor: [0.5, 0.5], x: 0, y: 300, parallax: 1.6, scale: true },
+            { name: "home/bg5", anchor: [0.5, 0], x: 0, y: 140, parallax: 2.0, scale: true },
+            { name: "home/bg6", anchor: [0.5, 0], x: 0, y: 150, parallax: 3.0, scale: false },
+            { name: "home/bg7", anchor: [0.5, 0], x: 0, y: 250, parallax: 3.0, scale: false },
+            { name: "home/bg8", anchor: [1, 0], x: 900, y: 0, parallax: 3.2, scale: false },
+            { name: "home/bg9", anchor: [0, 0], x: -900, y: -150, parallax: 3.2, scale: false },
 
 
         ]
@@ -29,13 +40,12 @@ export default class Home extends cc.Component {
 
     async onLoad() {
         cc.log("home onload", cc.winSize)
+        this.home_width = cc.winSize.width * 3;
+        this.home_height = cc.winSize.height
         //cc.director.getScene().getChildByName('Canvas').alignWithScreen();
-        //canvas.alignWithScreen();
-        //this.node.setAnchorPoint(1, 1)
-        // this.rootNode = new cc.Node('rootNode');
-        // this.node.setAnchorPoint(1, 1)
+
         this.rootNode.setAnchorPoint(0.5, 0)
-        this.rootNode.active = true;
+        //this.rootNode.active = true;
         // this.rootNode.x = 0;
         // this.rootNode.y = 0;
         // this.rootNode.width = 200;
@@ -56,13 +66,22 @@ export default class Home extends cc.Component {
         // }, this.node);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, (event: cc.Event.EventTouch) => {
 
-            cc.log(event)
+            // cc.log(event)
             let delta = event.touch.getDelta();
-            this.rootNode.x += delta.x;
-            this.rootNode.y += delta.y;
-            // this.rootNode.setPosition(cc.v2(this.node.x + delta.x, this.node.y + delta.y));
+            //this.rootNode.x += delta.x;
+            //cc.log(delta.x)
+
+            for (let i = 0; i < this.config.background.length; i++) {
+                this.rootNode.children[i].x += delta.x + Math.sign(delta.x) * this.config.background[i].parallax;
+            }
 
         }, this.node);
+
+
+        this.button.node.on('click', this.onBtnClicked);
+        this.buttonOne.node.on('click', () => { this.onBtnClicked(1) });
+
+        this.buttonTwo.node.on('click', () => { this.onBtnClicked(2) });
 
 
 
@@ -79,6 +98,7 @@ export default class Home extends cc.Component {
                         callback(err)
                     }
                     ret[item.name] = spriteFrame
+                    //cc.log(spriteFrame.getRect())
                     callback();
 
                 });
@@ -104,176 +124,39 @@ export default class Home extends cc.Component {
         cc.log("assets", this.assets);
 
         this.config.background.forEach(item => {
-            cc.log(item);
-            let node = new cc.Node('node_' + item.name);
+            //cc.log(item);
+            let node = new cc.Node(item.name);
             node.setAnchorPoint(item.anchor[0], item.anchor[1])
             let bg: cc.Sprite = node.addComponent(cc.Sprite);
 
             bg.spriteFrame = this.assets.img[item.name];
+            if (item.scale) {
+                node.setContentSize(this.home_width, bg.spriteFrame.getRect().height)
+            }
+
             node.x = item.x
             node.y = item.y
             this.rootNode.addChild(node);
         });
 
 
-        // let node = new cc.Node('bg1node');
-        // node.setAnchorPoint(0, 0)
-        // node.color = new cc.Color(255, 0, 0)
-        // this.rootNode.addChild(node);
-
-        //let bg1: cc.Sprite = new cc.Sprite()
-        //let bg2: cc.Sprite = this.addComponent(cc.Sprite);
-        //self.node.setAnchorPoint(0.5, 0)
-        //this.setPosition(cc.v2(500, 500))
-        // cc.loader.loadRes("home/bg1", cc.SpriteFrame, (err, spriteFrame) => {
-
-        //     cc.log(err, spriteFrame)
-        //     if (err) {
-        //         return
-        //     }
-
-        //     let node = new cc.Node('bg1node');
-        //     node.setAnchorPoint(0, 0)
-        //     let bg: cc.Sprite = node.addComponent(cc.Sprite);
-
-        //     bg.spriteFrame = spriteFrame;
-
-        //     // cc.log(node)
-        //     this.rootNode.addChild(node);
-        //     //cc.log(self.node)
-
-        // });
-        // cc.loader.loadRes("home/bg2", cc.SpriteFrame, (err, spriteFrame) => {
-
-        //     cc.log(err, spriteFrame)
-        //     if (err) {
-        //         return
-        //     }
-
-        //     let node = new cc.Node('bg2node');
-        //     node.setAnchorPoint(0, 0)
-        //     let bg: cc.Sprite = node.addComponent(cc.Sprite);
-        //     //  node.y = node.y - 23;
-
-        //     bg.spriteFrame = spriteFrame;
-
-        //     // cc.log(node)
-        //     this.rootNode.addChild(node);
-        //     //cc.log(self.node)
-
-        // });
-        // cc.loader.loadRes("home/bg20", cc.SpriteFrame, (err, spriteFrame) => {
-
-        //     cc.log(err, spriteFrame)
-        //     if (err) {
-        //         return
-        //     }
-
-        //     let node = new cc.Node('bg20node');
-        //     let bg: cc.Sprite = node.addComponent(cc.Sprite);
-
-        //     bg.spriteFrame = spriteFrame;
-
-        //     // cc.log(node)
-        //     this.rootNode.addChild(node);
-        //     //cc.log(self.node)
-
-        // });
-        // cc.loader.loadRes("home/bg21", cc.SpriteFrame, (err, spriteFrame) => {
-
-        //     cc.log(err, spriteFrame)
-        //     if (err) {
-        //         return
-        //     }
-
-        //     let node = new cc.Node('bg21node');
-        //     let bg: cc.Sprite = node.addComponent(cc.Sprite);
-
-        //     bg.spriteFrame = spriteFrame;
-
-        //     // cc.log(node)
-        //     this.rootNode.addChild(node);
-        //     //cc.log(self.node)
-
-        // });
-
-        // cc.loader.loadRes("home/bg3", cc.SpriteFrame, (err, spriteFrame) => {
-
-        //     cc.log(err, spriteFrame)
-        //     if (err) {
-        //         return
-        //     }
-
-        //     let node = new cc.Node('bg3node');
-        //     let bg: cc.Sprite = node.addComponent(cc.Sprite);
-
-        //     bg.spriteFrame = spriteFrame;
-
-        //     // cc.log(node)
-        //     this.rootNode.addChild(node);
-        //     //cc.log(self.node)
-
-        // });
-        // cc.loader.loadRes("home/bg4", cc.SpriteFrame, (err, spriteFrame) => {
-
-        //     cc.log(err, spriteFrame)
-        //     if (err) {
-        //         return
-        //     }
-
-        //     let node = new cc.Node('bg4node');
-        //     let bg: cc.Sprite = node.addComponent(cc.Sprite);
-
-        //     bg.spriteFrame = spriteFrame;
-
-        //     // cc.log(node)
-        //     this.rootNode.addChild(node);
-        //     //cc.log(self.node)
-
-        // });
-        // cc.loader.loadRes("home/bg5_1", cc.SpriteFrame, (err, spriteFrame) => {
-
-        //     cc.log(err, spriteFrame)
-        //     if (err) {
-        //         return
-        //     }
-
-        //     let node = new cc.Node('bg5_1');
-        //     let bg: cc.Sprite = node.addComponent(cc.Sprite);
-
-        //     bg.spriteFrame = spriteFrame;
-
-        //     // cc.log(node)
-        //     this.rootNode.addChild(node);
-        //     //cc.log(self.node)
-
-        // });
-        // cc.loader.loadRes("home/bg5_2", cc.SpriteFrame, (err, spriteFrame) => {
-
-        //     cc.log(err, spriteFrame)
-        //     if (err) {
-        //         return
-        //     }
-
-        //     let node = new cc.Node('bg5_2');
-        //     let bg: cc.Sprite = node.addComponent(cc.Sprite);
-
-        //     bg.spriteFrame = spriteFrame;
-
-        //     // cc.log(node)
-        //     this.rootNode.addChild(node);
-        //     //cc.log(self.node)
-
-        // });
-        // cc.loader.loadRes("home/bg2", cc.SpriteFrame, (err, spriteFrame) => {
-        //     if (err) {
-        //         return
-        //     }
-        //     bg2.spriteFrame = spriteFrame;
-
-        // });
-
     }
 
+
+    onBtnClicked = (dot?: number) => {
+        console.log('button clicked!', dot);
+
+        if (dot == 1) {
+            this.rootNode.runAction(
+                cc.moveTo(0.5, cc.v2(0, 0))
+            )
+        } else if (dot == 2) {
+            this.rootNode.runAction(
+                cc.moveTo(0.5, cc.v2(640, 0))
+            )
+        }
+        //  shake(this.rootNode, 3);
+        //this.display.textKey = i18n.t("cases/02_ui/03_button/SimpleButton.js.1");
+    }
     // update (dt) {}
 }
