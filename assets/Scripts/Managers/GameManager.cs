@@ -15,8 +15,8 @@ namespace Acans.Engine
     {
       Debug.Log("GameManager start");
 
-      var jsontest = new jsontest();
-      jsontest.test();
+      //var jsontest = new jsontest();
+      //jsontest.test();
     }
 
     // Update is called once per frame
