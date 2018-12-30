@@ -5,6 +5,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 using UnityEngine.Tilemaps;
+using Pathfinding;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -149,7 +150,13 @@ public class TmxImporter : MonoBehaviour
       var tilemap = tilemap_obj.AddComponent<Tilemap>();
       TilemapRenderer render = tilemap_obj.AddComponent<TilemapRenderer>();
 
-      Texture2D tex = Resources.Load<Texture2D>("testResources/assets/rpgTile001");
+      TilemapCollider2D tilemapCollider2D = tilemap_obj.AddComponent<TilemapCollider2D>();
+      // tilemapCollider2D.usedByComposite = true;
+      CompositeCollider2D compositeCollider2D = tilemap_obj.AddComponent<CompositeCollider2D>();
+      Rigidbody2D rigidbody2D = tilemap_obj.GetComponent<Rigidbody2D>();
+      rigidbody2D.bodyType = RigidbodyType2D.Static;
+
+      Texture2D tex = Resources.Load<Texture2D>("testResources/assets/rpgTile024");
       //Sprite sprite = Resources.Load<Sprite>("testResources/assets/rpgTile175");
       Sprite sprite = Sprite.Create(tex,
                     new Rect(0, 0, tex.width, tex.height),
@@ -175,6 +182,10 @@ public class TmxImporter : MonoBehaviour
           }
         }
       }
+
+
+      //var compositeCollider2D=tilemap_obj.GetComponent<CompositeCollider2D>();
+
 
       // BoundsInt bounds = tilemap.cellBounds;
       // TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
