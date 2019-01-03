@@ -1,8 +1,14 @@
 using UnityEngine;
+using System;
+using System.Threading.Tasks;
 using System.Collections;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using UniRx;
 
 using UnityEngine.Tilemaps;
 using Pathfinding;
@@ -13,11 +19,9 @@ using UnityEditor;
 
 using Acans.Tools;
 using Acans.Tmx;
+
 public class TmxImporter : MonoBehaviour
 {
-#if UNITY_EDITOR
-  public UnityEngine.Object file;
-#endif
 
   public string filename;
 
@@ -25,7 +29,7 @@ public class TmxImporter : MonoBehaviour
   private float width;
   private float height;
 
-  void Start()
+  async void Start()
   {
 
     float leftBorder;
@@ -44,32 +48,47 @@ public class TmxImporter : MonoBehaviour
     height = topBorder - downBorder;
 
     Log.info("width", width, "height", height);
-    loadMap();
 
+    // StartCoroutine(loadMap());
+
+    await loadMap();
+    // var ret = await loadRes("/testResources/assets/rpgTile024.png");
+    // Log.info("LoadRes ", (ret.texture as Texture2D));
   }
 
-  void loadMap()
+  void Awake()
   {
-#if UNITY_EDITOR
-    filename = AssetDatabase.GetAssetPath(file);
+    //TextAsset t = Resources.Load<TextAsset>("TestResources/t4");
+
+    //Log.info(t.text);
+  }
+
+  async Task<WWW> loadRes(string url)
+  {
+    string path = "";
+#if UNITY_EDITOR||UNITY_STANDALONE_WIN || UNITY_IPHONE
+    path = "file://" + Application.streamingAssetsPath;
+#else
+    path =Application.streamingAssetsPath;
 #endif
+    Log.info("LoadRes", path + url);
+    var www = await new WWW(path + url);
 
+    return www;
+  }
 
-    if (file == null || filename == null)
-    {
-
-    }
-    // Cria uma intancia do XmlSerializer especificando o tipo e namespace.
+  async Task loadMap()
+  {
+    // TextAsset t = Resources.Load<TextAsset>("TestResources/t2.tmx");
+    // Log.info("t=>", t.text);
+    var ret = await loadRes(filename);
+    Log.info("ret=>", ret.text);
+    var fs = new StringReader(ret.text);
     XmlSerializer serializer = new XmlSerializer(typeof(Map));
-
-    // Um FileStream é necessário para ler um documento XML.
-    FileStream fs = new FileStream(filename, FileMode.Open);
     XmlReader reader = XmlReader.Create(fs);
-
-    // Declaração do objeto raiz que irá receber a deserialização.
     map = (Map)serializer.Deserialize(reader);
-
     fs.Close();
+
     DumpObjecter.Dump(map);
 
     if (map != null)
@@ -87,8 +106,8 @@ public class TmxImporter : MonoBehaviour
     }
 
     // Log.info("map=", Dumper.Dump(map));
-
-    CreateTileMap();
+    await LoadTileset(map);
+    //CreateTileMap();
     CreateTile();
   }
 
@@ -110,15 +129,69 @@ public class TmxImporter : MonoBehaviour
     }
   }
 
-  // void createGrid(){
-  //   GameObject grid = GameObject.Find("TmxGrid");
+  async Task LoadTileset(Map _map)
+  {
+    Log.info("LoadTileset start");
+    if (_map.sprites == null)
+    {
+      _map.sprites = new List<Sprite>();
+    }
+    foreach (var tileset in _map.tilesets)
+    {
+      var image = tileset.image;
+      var tiles = tileset.tiles;
+      if (image != null)
+      {
+        for (int y = 0; y < image.height / tileset.tileheight; y++)
+        {
+          for (int x = 0; x < image.width / tileset.tilewidth; x++)
+          {
+            Log.info("image.source", image.source, Utils.getTmxImageSourceAssetPath(filename, image.source));
+            var ret = await loadRes(Utils.getTmxImageSourceAssetPath(filename, image.source));
+            //Texture2D tex = AssetDatabase.LoadAssetAtPath<Texture2D>(Utils.getAssetPath(filename, image.source));
+            _map.sprites.Add(Sprite.Create(ret.texture,
+                  new Rect(
+                    x * tileset.tilewidth,
+                   image.height - (y + 1) * tileset.tileheight,
+                   tileset.tilewidth,
+                   tileset.tileheight),
+                  new Vector2(0f, 0f), 1));
 
-  //   if (!grid)
-  //   {
-  //     Log.error("createtile error,grid is exists");
-  //     return;
-  //   }
-  // }
+          }
+        }
+      }
+      else if (tiles.Length > 0)
+      {
+        foreach (var tile in tiles)
+        {
+          if (tile.image != null)
+          {
+            //Texture2D tex = AssetDatabase.LoadAssetAtPath<Texture2D>(Utils.getTxmImageSourceAssetPath(filename, tile.image.source));
+            //DumpObjecter.Dump(tile.image);
+            Log.info("image.source", tile.image.source, Utils.getTmxImageSourceAssetPath(filename, tile.image.source));
+            var ret = await loadRes(Utils.getTmxImageSourceAssetPath(filename, tile.image.source));
+            _map.sprites.Add(Sprite.Create(ret.texture,
+                  new Rect(
+                    0,
+                   0,
+                   tileset.tilewidth,
+                   tileset.tileheight),
+                  new Vector2(0f, 0f), 1));
+          }
+          else
+          {
+            Log.info("load tileset error: tileset's tile not exist image");
+          }
+        }
+
+      }
+      else
+      {
+        Log.info("load tileset error: tileset not exist image or tile");
+      }
+
+    }
+  }
 
   void CreateTile()
   {
@@ -138,15 +211,32 @@ public class TmxImporter : MonoBehaviour
     //tile的中心点为四个顶点的其中一个点，默认左下角，我们偏移一下保证和其他游戏对象的中心点一致
     //grid.transform.position = new Vector3(-0.5f, -0.5f, 0);
     //grid.transform.position = new Vector3(0, 1, 0);
-
-    GameObject tilemap_obj = GameObject.Find("TmxTilemap");
-    if (!tilemap_obj)
+    foreach (var layer in map.layers)
     {
-      tilemap_obj = new GameObject("TmxTilemap");
+      // GameObject tilemap_obj = GameObject.Find("TmxTilemap");
+      // if (!tilemap_obj)
+      // {
+      var tilemap_obj = new GameObject("TmxTilemap_" + layer.name);
       tilemap_obj.transform.parent = grid.transform;
       //tilemap_obj.transform.position = new Vector3(-367, -667, 0);
       //tilemap_obj.transform.position = new Vector3(-Config.ReferenceResolution.x / 2, -Config.ReferenceResolution.y / 2, 0);
       tilemap_obj.transform.position = new Vector3(-width / 2, -height / 2, 0);
+
+
+      // Texture2D tex = Resources.Load<Texture2D>("testResources/assets/rpgTile024");
+      // //Sprite sprite = Resources.Load<Sprite>("testResources/assets/rpgTile175");
+      // Sprite sprite = Sprite.Create(tex,
+      //               new Rect(0, 0, tex.width, tex.height),
+      //               new Vector2(0.5f, 0.5f), 1);
+      // //Tile tile = new Tile();
+      // var tile = ScriptableObject.CreateInstance<UnityEngine.Tilemaps.Tile>();
+      // tile.sprite = sprite;
+
+
+
+
+
+
       var tilemap = tilemap_obj.AddComponent<Tilemap>();
       TilemapRenderer render = tilemap_obj.AddComponent<TilemapRenderer>();
 
@@ -155,33 +245,26 @@ public class TmxImporter : MonoBehaviour
       CompositeCollider2D compositeCollider2D = tilemap_obj.AddComponent<CompositeCollider2D>();
       Rigidbody2D rigidbody2D = tilemap_obj.GetComponent<Rigidbody2D>();
       rigidbody2D.bodyType = RigidbodyType2D.Static;
-
-      Texture2D tex = Resources.Load<Texture2D>("testResources/assets/rpgTile024");
-      //Sprite sprite = Resources.Load<Sprite>("testResources/assets/rpgTile175");
-      Sprite sprite = Sprite.Create(tex,
-                    new Rect(0, 0, tex.width, tex.height),
-                    new Vector2(0.5f, 0.5f), 1);
-      //Tile tile = new Tile();
-      var tile = ScriptableObject.CreateInstance<Tile>();
-      tile.sprite = sprite;
-
-
-      if (map.layers.Length > 0)
+      for (int i = 0; i < layer.width; i++)
       {
-        for (int i = 0; i < map.layers[0].width; i++)
+        for (int j = 0; j < layer.height; j++)
         {
-          for (int j = 0; j < map.layers[0].height; j++)
+          //Log.info("data=", i, j, ObjectDumper.Dump(map.layers[0].data.ids));
+          //Log.info("gid=", i, j, map.layers[0].getId(i, j));
+
+          if (layer.getId(i, j) != 0)
           {
-            //Log.info("data=", i, j, ObjectDumper.Dump(map.layers[0].data.ids));
-            //Log.info("gid=", i, j, map.layers[0].getId(i, j));
-            if (map.layers[0].getId(i, j) != 0)
-            {
-              tilemap.SetTile(new Vector3Int(i, j, 0), tile);
-            }
+            // Log.info(map.layers[0].getId(i, map.layers[0].height - j), map.sprites.Count);
+            var tile = ScriptableObject.CreateInstance<UnityEngine.Tilemaps.Tile>();
+            tile.sprite = map.sprites[layer.getId(i, j) - 1];
+            tilemap.SetTile(new Vector3Int(i, layer.height - j, 0), tile);
 
           }
+
         }
+        // if (i == 3) return;
       }
+
 
 
       //var compositeCollider2D=tilemap_obj.GetComponent<CompositeCollider2D>();
@@ -190,29 +273,29 @@ public class TmxImporter : MonoBehaviour
       // BoundsInt bounds = tilemap.cellBounds;
       // TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
       //DumpObjecter.Dump(grid);
-      foreach (var pos in tilemap.cellBounds.allPositionsWithin)
-      {
-        Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
-        Vector3 place = tilemap.CellToWorld(localPlace);
-        if (tilemap.HasTile(localPlace))
-        {
-          //tileWorldLocations.Add(place);
-          //DrawRectangle.draw(grid, new Vector2(place.x, place.y), new Vector2(place.x + grid_com.cellSize.x, place.y + grid_com.cellSize.y));
+      // foreach (var pos in tilemap.cellBounds.allPositionsWithin)
+      // {
+      //   Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+      //   Vector3 place = tilemap.CellToWorld(localPlace);
+      //   if (tilemap.HasTile(localPlace))
+      //   {
+      //     //tileWorldLocations.Add(place);
+      //     //DrawRectangle.draw(grid, new Vector2(place.x, place.y), new Vector2(place.x + grid_com.cellSize.x, place.y + grid_com.cellSize.y));
 
-          //Log.info("tile=>", place);
-        }
-        else
-        {
-          //Log.info("tile=>", place);
-        }
-      }
+      //     //Log.info("tile=>", place);
+      //   }
+      //   else
+      //   {
+      //     //Log.info("tile=>", place);
+      //   }
+      // }
 
       // Log.info(bounds.size.x, bounds.size.y);
 
     }
 
 
-
+    //   }
 
   }
   // public void OnGUI()

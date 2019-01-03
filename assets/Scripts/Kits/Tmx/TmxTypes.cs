@@ -9,7 +9,7 @@
 using UnityEngine;
 using System;
 using System.Xml.Serialization;
-
+using System.Collections.Generic;
 namespace Acans.Tmx
 {
 
@@ -33,6 +33,8 @@ namespace Acans.Tmx
 
     [XmlElement("objectgroup")]
     public ObjectGroup[] objectGroups;
+
+    public List<Sprite> sprites;
   }
 
   [Serializable]
@@ -45,13 +47,18 @@ namespace Acans.Tmx
     [XmlAttribute] public int tilecount;
     [XmlAttribute] public int columns;
 
+    [XmlElement("tile")]
+    public Tile[] tiles;
+
     //- Tileset para arquivos .tsx
     [XmlAttribute] public string source;
+
+
 
     [XmlElement("image")]
     public Image image;
 
-    public object obj = null;
+    //public object obj = null;
 
     public string getSource()
     {
@@ -69,6 +76,14 @@ namespace Acans.Tmx
     [XmlAttribute] public string source;
     [XmlAttribute] public int width;
     [XmlAttribute] public int height;
+  }
+
+  [Serializable]
+  public class Tile
+  {
+    [XmlAttribute] public string id;
+    [XmlElement("image")]
+    public Image image;
   }
 
   [Serializable]
@@ -105,11 +120,11 @@ namespace Acans.Tmx
     [XmlAttribute] public string name;
 
     [XmlElement("object")]
-    public Object[] objects;
+    public TmxObject[] objects;
   }
 
   [Serializable]
-  public class Object
+  public class TmxObject
   {
     [XmlAttribute] public string name;
     [XmlAttribute] public string type;

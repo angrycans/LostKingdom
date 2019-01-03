@@ -1,0 +1,133 @@
+Map {
+  "version": "1.0",
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "width": 10,
+  "height": 20,
+  "tilewidth": 64,
+  "tileheight": 64,
+  "nextobjectid": 1,
+  "tilesets": [
+    {
+      "name": "b",
+      "firstgid": 1,
+      "tilewidth": 64,
+      "tileheight": 64,
+      "tilecount": 9,
+      "columns": 3,
+      "source": null,
+      "tiles": [
+        {
+          "id": "0",
+          "image": {
+            "source": "assets/rpgTile000.png",
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "1",
+          "image": {
+            "source": "assets/rpgTile001.png",
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "2",
+          "image": {
+            "source": "assets/rpgTile002.png",
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "3",
+          "image": {
+            "source": "assets/rpgTile018.png",
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "4",
+          "image": {
+            "source": "assets/rpgTile019.png",
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "5",
+          "image": {
+            "source": "assets/rpgTile020.png",
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "6",
+          "image": {
+            "source": "assets/rpgTile036.png",
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "7",
+          "image": {
+            "source": "assets/rpgTile037.png",
+            "width": 64,
+            "height": 64
+          }
+        },
+        {
+          "id": "8",
+          "image": {
+            "source": "assets/rpgTile038.png",
+            "width": 64,
+            "height": 64
+          }
+        }
+      ],
+      "image": null,
+      "obj": null
+    },
+    {
+      "name": "tilemap128",
+      "firstgid": 10,
+      "tilewidth": 64,
+      "tileheight": 64,
+      "tilecount": 16,
+      "columns": 4,
+      "source": null,
+      "tiles": null,
+      "image": {
+        "source": "assets/tilemap128.png",
+        "width": 256,
+        "height": 256
+      },
+      "obj": null
+    }
+  ],
+  "layers": [
+    {
+      "name": "Tile Layer 1",
+      "width": 10,
+      "height": 20,
+      "offsetx": 0,
+      "offsety": 0,
+      "data": {
+        "encoding": "csv",
+        "text": "\n1,2,2,2,2,2,2,2,2,3,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,10,11,12,13,5,5,6,\n4,5,5,14,15,16,17,5,5,6,\n4,5,5,18,19,20,21,5,5,6,\n4,5,5,22,23,24,25,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n4,5,5,5,5,5,5,5,5,6,\n7,8,8,8,8,8,8,8,8,9\n",
+        "ids": null
+      }
+    }
+  ],
+  "objectGroups": null
+} 
+UnityEngine.Debug:Log(Object)
+Acans.Tools.Log:info(Object[]) (at Assets/Scripts/Kits/Utils/Log.cs: 43)
+Acans.Tools.DumpObjecter:Dump(Object) (at Assets/Scripts/Kits/Utils/DumpObjecter.cs: 27)
+TmxImporter:loadMap() (at Assets/Scripts/Kits/Tmx/TmxImporter.cs: 73)
+TmxImporter:Start() (at Assets/Scripts/Kits/Tmx/TmxImporter.cs: 47)

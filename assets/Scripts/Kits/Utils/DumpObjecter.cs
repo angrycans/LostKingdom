@@ -24,7 +24,7 @@ namespace Acans.Tools
       var toJson = LitJson.JsonMapper.ToJson(element);
 
       //var toJson = Json.Serialize(element);
-      Log.info(element.GetType().Name, toJson);
+      Log.info("dump=>", element.GetType().Name, toJson);
       //Debug.Log(Dump(element, 2));
     }
   }
