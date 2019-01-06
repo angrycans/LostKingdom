@@ -142,25 +142,34 @@ public class TmxImporter : MonoBehaviour
       var tiles = tileset.tiles;
       if (image != null)
       {
+        Log.info("image.source", image.source, Utils.getTmxImageSourceAssetPath(filename, image.source));
+        var ret = await loadRes(Utils.getTmxImageSourceAssetPath(filename, image.source));
+        var tex = ret.texture;
+        tex.filterMode = FilterMode.Point;
         for (int y = 0; y < image.height / tileset.tileheight; y++)
         {
           for (int x = 0; x < image.width / tileset.tilewidth; x++)
           {
-            Log.info("image.source", image.source, Utils.getTmxImageSourceAssetPath(filename, image.source));
-            var ret = await loadRes(Utils.getTmxImageSourceAssetPath(filename, image.source));
+
             //Texture2D tex = AssetDatabase.LoadAssetAtPath<Texture2D>(Utils.getAssetPath(filename, image.source));
-            _map.sprites.Add(Sprite.Create(ret.texture,
+
+            var sprite = Sprite.Create(tex,
                   new Rect(
                     x * tileset.tilewidth,
                    image.height - (y + 1) * tileset.tileheight,
                    tileset.tilewidth,
                    tileset.tileheight),
-                  new Vector2(0f, 0f), 1));
+                  new Vector2(0f, 0f), 1);
+            Log.info("Sprite.Create", x, y, x * tileset.tilewidth,
+                   image.height - (y + 1) * tileset.tileheight,
+                   tileset.tilewidth,
+                   tileset.tileheight);
+            _map.sprites.Add(sprite);
 
           }
         }
       }
-      else if (tiles.Length > 0)
+      else if (tiles != null && tiles.Length > 0)
       {
         foreach (var tile in tiles)
         {
@@ -170,7 +179,9 @@ public class TmxImporter : MonoBehaviour
             //DumpObjecter.Dump(tile.image);
             Log.info("image.source", tile.image.source, Utils.getTmxImageSourceAssetPath(filename, tile.image.source));
             var ret = await loadRes(Utils.getTmxImageSourceAssetPath(filename, tile.image.source));
-            _map.sprites.Add(Sprite.Create(ret.texture,
+            var tex = ret.texture;
+            tex.filterMode = FilterMode.Point;
+            _map.sprites.Add(Sprite.Create(tex,
                   new Rect(
                     0,
                    0,
@@ -206,7 +217,7 @@ public class TmxImporter : MonoBehaviour
     //grid.transform.position = new Vector3(-Config.ReferenceResolution.x / 2, -Config.ReferenceResolution.y / 2, 0);
 
     var grid_com = grid.AddComponent<Grid>();
-    grid_com.cellSize = new Vector3(64f, 64f, 0);
+    grid_com.cellSize = new Vector3(map.tilewidth, map.tileheight, 0);
     //
     //tile的中心点为四个顶点的其中一个点，默认左下角，我们偏移一下保证和其他游戏对象的中心点一致
     //grid.transform.position = new Vector3(-0.5f, -0.5f, 0);

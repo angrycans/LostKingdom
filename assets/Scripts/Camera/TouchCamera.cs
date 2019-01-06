@@ -1,6 +1,7 @@
 ﻿// Just add this script to your camera. It doesn't need any configuration.
 
 using UnityEngine;
+using Acans.Tools;
 
 public class TouchCamera : MonoBehaviour
 {
@@ -9,17 +10,41 @@ public class TouchCamera : MonoBehaviour
     null
   };
   Vector2 oldTouchVector;
+  Vector2 oldMouseVector;
   float oldTouchDistance;
+
+  public void OnGUI()
+  {
+    if (Event.current.type == EventType.MouseDown)
+    {
+      oldMouseVector = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+
+    }
+    else if (Event.current.type == EventType.MouseDrag)
+    {
+
+      Vector2 newMousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+      transform.position += transform.TransformDirection((Vector3)((oldMouseVector - newMousePosition) * Camera.main.orthographicSize / Camera.main.pixelHeight * 2f));
+      // Log.info("GetMouse drag", Input.mousePosition.x, Input.mousePosition.y, transform.position.x, transform.position.y, oldTouchPositions[0].ToString());
+      oldMouseVector = newMousePosition;
+    }
+
+
+  }
 
   void Update()
   {
     if (Input.touchCount == 0)
     {
+      //  Log.info("GetMouseButtonDown");
       oldTouchPositions[0] = null;
       oldTouchPositions[1] = null;
     }
     else if (Input.touchCount == 1)
     {
+
       if (oldTouchPositions[0] == null || oldTouchPositions[1] != null)
       {
         oldTouchPositions[0] = Input.GetTouch(0).position;
