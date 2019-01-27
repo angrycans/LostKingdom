@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using UniRx;
-
+using Newtonsoft.Json;
 using UnityEngine.Tilemaps;
 using Pathfinding;
 
@@ -19,13 +19,13 @@ using UnityEditor;
 
 using Acans.Tools;
 using Acans.Tmx;
-
+using Acans.Tmx.Json;
 public class TmxImporter : MonoBehaviour
 {
 
   public string filename;
 
-  public Acans.Tmx.Map map;
+  public TmxMap map;
   private float width;
   private float height;
 
@@ -48,12 +48,8 @@ public class TmxImporter : MonoBehaviour
     height = topBorder - downBorder;
 
     Log.info("width", width, "height", height);
-
-    // StartCoroutine(loadMap());
-
     await loadMap();
-    // var ret = await loadRes("/testResources/assets/rpgTile024.png");
-    // Log.info("LoadRes ", (ret.texture as Texture2D));
+
   }
 
   void Awake()
@@ -63,73 +59,27 @@ public class TmxImporter : MonoBehaviour
     //Log.info(t.text);
   }
 
-  async Task<WWW> loadRes(string url)
-  {
-    string path = "";
-#if UNITY_EDITOR||UNITY_STANDALONE_WIN || UNITY_IPHONE
-    path = "file://" + Application.streamingAssetsPath;
-#else
-    path =Application.streamingAssetsPath;
-#endif
-    Log.info("LoadRes", path + url);
-    var www = await new WWW(path + url);
-
-    return www;
-  }
 
   async Task loadMap()
   {
     // TextAsset t = Resources.Load<TextAsset>("TestResources/t2.tmx");
     // Log.info("t=>", t.text);
-    var ret = await loadRes(filename);
+    var ret = await FileUtils.LoadFromSteamAssets(filename);
     Log.info("ret=>", ret.text);
-    var fs = new StringReader(ret.text);
-    XmlSerializer serializer = new XmlSerializer(typeof(Map));
-    XmlReader reader = XmlReader.Create(fs);
-    map = (Map)serializer.Deserialize(reader);
-    fs.Close();
 
-    DumpObjecter.Dump(map);
 
-    if (map != null)
-    {
-      foreach (Layer layer in map.layers)
-      {
-        string[] split = layer.data.text.Split(',');
-        layer.data.ids = new int[split.Length];
-        for (int i = 0; i < split.Length; i++)
-        {
-          layer.data.ids[i] = int.Parse(split[i]);
-        }
-        layer.data.text = null;
-      }
-    }
+    map = JsonConvert.DeserializeObject<TmxMap>(ret.text);
 
-    // Log.info("map=", Dumper.Dump(map));
+
+    Objecter.Dump(map);
     await LoadTileset(map);
-    //CreateTileMap();
     CreateTile();
-  }
-
-  void CreateTileMap()
-  {
 
   }
 
-  void renderMap()
-  {
-    if (map.layers.Length > 0)
-    {
-      for (int i = 0; i < map.layers[0].width; i++)
-      {
-        for (int j = 0; j < map.layers[0].height; j++)
-        {
-        }
-      }
-    }
-  }
 
-  async Task LoadTileset(Map _map)
+
+  async Task LoadTileset(TmxMap _map)
   {
     Log.info("LoadTileset start");
     if (_map.sprites == null)
@@ -138,17 +88,16 @@ public class TmxImporter : MonoBehaviour
     }
     foreach (var tileset in _map.tilesets)
     {
-      var image = tileset.image;
       var tiles = tileset.tiles;
-      if (image != null)
+      if (tileset.image != null)
       {
-        Log.info("image.source", image.source, Utils.getTmxImageSourceAssetPath(filename, image.source));
-        var ret = await loadRes(Utils.getTmxImageSourceAssetPath(filename, image.source));
+        Log.info("image.source", tileset.image, Utils.getTmxImageSourceAssetPath(filename, tileset.image));
+        var ret = await FileUtils.LoadFromSteamAssets(Utils.getTmxImageSourceAssetPath(filename, tileset.image));
         var tex = ret.texture;
         tex.filterMode = FilterMode.Point;
-        for (int y = 0; y < image.height / tileset.tileheight; y++)
+        for (int y = 0; y < tileset.imageheight / tileset.tileheight; y++)
         {
-          for (int x = 0; x < image.width / tileset.tilewidth; x++)
+          for (int x = 0; x < tileset.imagewidth / tileset.tilewidth; x++)
           {
 
             //Texture2D tex = AssetDatabase.LoadAssetAtPath<Texture2D>(Utils.getAssetPath(filename, image.source));
@@ -156,12 +105,12 @@ public class TmxImporter : MonoBehaviour
             var sprite = Sprite.Create(tex,
                   new Rect(
                     x * tileset.tilewidth,
-                   image.height - (y + 1) * tileset.tileheight,
+                   tileset.imageheight - (y + 1) * tileset.tileheight,
                    tileset.tilewidth,
                    tileset.tileheight),
                   new Vector2(0f, 0f), 1);
             Log.info("Sprite.Create", x, y, x * tileset.tilewidth,
-                   image.height - (y + 1) * tileset.tileheight,
+                   tileset.imageheight - (y + 1) * tileset.tileheight,
                    tileset.tilewidth,
                    tileset.tileheight);
             _map.sprites.Add(sprite);
@@ -177,8 +126,8 @@ public class TmxImporter : MonoBehaviour
           {
             //Texture2D tex = AssetDatabase.LoadAssetAtPath<Texture2D>(Utils.getTxmImageSourceAssetPath(filename, tile.image.source));
             //DumpObjecter.Dump(tile.image);
-            Log.info("image.source", tile.image.source, Utils.getTmxImageSourceAssetPath(filename, tile.image.source));
-            var ret = await loadRes(Utils.getTmxImageSourceAssetPath(filename, tile.image.source));
+            Log.info("image.source", tile.image, Utils.getTmxImageSourceAssetPath(filename, tile.image));
+            var ret = await FileUtils.LoadFromSteamAssets(Utils.getTmxImageSourceAssetPath(filename, tile.image));
             var tex = ret.texture;
             tex.filterMode = FilterMode.Point;
             _map.sprites.Add(Sprite.Create(tex,
@@ -260,8 +209,6 @@ public class TmxImporter : MonoBehaviour
       {
         for (int j = 0; j < layer.height; j++)
         {
-          //Log.info("data=", i, j, ObjectDumper.Dump(map.layers[0].data.ids));
-          //Log.info("gid=", i, j, map.layers[0].getId(i, j));
 
           if (layer.getId(i, j) != 0)
           {
@@ -273,7 +220,7 @@ public class TmxImporter : MonoBehaviour
           }
 
         }
-        // if (i == 3) return;
+
       }
 
 

@@ -27,7 +27,7 @@ class jsontest
     //JsonData data = JsonMapper.ToObject(ass.text);
     map = JsonMapper.ToObject<Map>(ass.text);
 
-    DumpObjecter.Dump(map);
+    Objecter.Dump(map);
     // Debug.Log("map " + map.height);
   }
 

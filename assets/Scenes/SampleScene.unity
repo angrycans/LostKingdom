@@ -165,19 +165,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921e846dffcad4e84b4c8f6cddbf6402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: /TestResources/mapa1.tmx
+  filename: /TestResources/mapa1.json
   map:
-    version: 
-    orientation: 
-    renderorder: 
+    backgroundcolor: 
     width: 0
     height: 0
+    infinite: 0
+    hexsidelength: 0
+    layers: []
+    nextlayerid: 0
+    nextobjectid: 0
+    orientation: 
+    renderorder: 
+    tiledversion: 
     tilewidth: 0
     tileheight: 0
-    nextobjectid: 0
     tilesets: []
-    layers: []
-    objectGroups: []
+    staggeraxis: 
+    staggerindex: 
+    type: 
+    version: 0
     sprites: []
 --- !u!1 &166984493
 GameObject:
@@ -489,7 +496,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 480
+  orthographic size: 667
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -1,161 +1,903 @@
 {
-  "version": "1.0",
-  "orientation": "orthogonal",
-  "renderorder": "right-down",
-  "width": 50,
-  "height": 50,
-  "tilewidth": 32,
-  "tileheight": 32,
-  "nextobjectid": 1,
-  "tilesets": [
-    {
-      "name": null,
-      "firstgid": 1,
-      "tilewidth": 0,
-      "tileheight": 0,
-      "tilecount": 0,
-      "columns": 0,
-      "tiles": null,
-      "source": "tiles2/terrain.tsx",
-      "image": null
+  "frames": {
+    "SaurianElite_0001.png": {
+      "aliases": [
+        "SaurianElite_0002.png"
+      ],
+      "spriteColorRect": "{{19, 25}, {88, 66}}",
+      "spriteOffset": "{-11, -6}",
+      "spriteSize": "{88, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{238, 276}, {66, 88}}",
+      "textureRotated": true
     },
-    {
-      "name": "trunk_X2",
-      "firstgid": 465,
-      "tilewidth": 32,
-      "tileheight": 64,
-      "tilecount": 6,
-      "columns": 6,
-      "tiles": null,
-      "source": null,
-      "image": {
-        "source": "tiles2/trunk_X2.png",
-        "width": 192,
-        "height": 64
-      }
+    "SaurianElite_0003.png": {
+      "aliases": [
+        "SaurianElite_0004.png"
+      ],
+      "spriteColorRect": "{{23, 21}, {82, 70}}",
+      "spriteOffset": "{-10, -4}",
+      "spriteSize": "{82, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{360, 0}, {70, 82}}",
+      "textureRotated": true
     },
-    {
-      "name": "treetop",
-      "firstgid": 471,
-      "tilewidth": 32,
-      "tileheight": 32,
-      "tilecount": 42,
-      "columns": 6,
-      "tiles": null,
-      "source": null,
-      "image": {
-        "source": "tiles2/treetop.png",
-        "width": 192,
-        "height": 224
-      }
+    "SaurianElite_0005.png": {
+      "aliases": [
+        "SaurianElite_0006.png"
+      ],
+      "spriteColorRect": "{{27, 20}, {76, 70}}",
+      "spriteOffset": "{-9, -3}",
+      "spriteSize": "{76, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{496, 166}, {70, 76}}",
+      "textureRotated": true
     },
-    {
-      "name": "cherry_blossom_trees_X4",
-      "firstgid": 513,
-      "tilewidth": 32,
-      "tileheight": 128,
-      "tilecount": 7,
-      "columns": 7,
-      "tiles": null,
-      "source": null,
-      "image": {
-        "source": "tiles2/cherry_blossom_trees_X4.png",
-        "width": 224,
-        "height": 128
-      }
+    "SaurianElite_0007.png": {
+      "aliases": [],
+      "spriteColorRect": "{{28, 20}, {74, 70}}",
+      "spriteOffset": "{-9, -3}",
+      "spriteSize": "{74, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{568, 236}, {70, 74}}",
+      "textureRotated": true
     },
-    {
-      "name": "wheelbarrows_X2",
-      "firstgid": 520,
-      "tilewidth": 32,
-      "tileheight": 64,
-      "tilecount": 11,
-      "columns": 11,
-      "tiles": null,
-      "source": null,
-      "image": {
-        "source": "tiles2/wheelbarrows_X2.png",
-        "width": 352,
-        "height": 64
-      }
+    "SaurianElite_0008.png": {
+      "aliases": [
+        "SaurianElite_0009.png"
+      ],
+      "spriteColorRect": "{{30, 22}, {72, 68}}",
+      "spriteOffset": "{-8, -4}",
+      "spriteSize": "{72, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{726, 384}, {68, 72}}",
+      "textureRotated": true
     },
-    {
-      "name": "torii_X4",
-      "firstgid": 531,
-      "tilewidth": 32,
-      "tileheight": 128,
-      "tilecount": 18,
-      "columns": 18,
-      "tiles": null,
-      "source": null,
-      "image": {
-        "source": "tiles2/torii_X4.png",
-        "width": 576,
-        "height": 128
-      }
+    "SaurianElite_0010.png": {
+      "aliases": [
+        "SaurianElite_0011.png"
+      ],
+      "spriteColorRect": "{{33, 27}, {70, 66}}",
+      "spriteOffset": "{-6, -8}",
+      "spriteSize": "{70, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{716, 146}, {66, 70}}",
+      "textureRotated": true
     },
-    {
-      "name": "colisao",
-      "firstgid": 549,
-      "tilewidth": 32,
-      "tileheight": 32,
-      "tilecount": 2,
-      "columns": 2,
-      "tiles": null,
-      "source": null,
-      "image": {
-        "source": "tiles1/colisao.png",
-        "width": 64,
-        "height": 32
-      }
+    "SaurianElite_0012.png": {
+      "aliases": [
+        "SaurianElite_0013.png"
+      ],
+      "spriteColorRect": "{{34, 25}, {68, 68}}",
+      "spriteOffset": "{-6, -7}",
+      "spriteSize": "{68, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{782, 218}, {68, 68}}",
+      "textureRotated": false
     },
-    {
-      "name": "player",
-      "firstgid": 551,
-      "tilewidth": 32,
-      "tileheight": 47,
-      "tilecount": 1,
-      "columns": 1,
-      "tiles": null,
-      "source": null,
-      "image": {
-        "source": "tiles1/player.png",
-        "width": 32,
-        "height": 47
-      }
+    "SaurianElite_0014.png": {
+      "aliases": [
+        "SaurianElite_0015.png"
+      ],
+      "spriteColorRect": "{{33, 21}, {70, 72}}",
+      "spriteOffset": "{-6, -5}",
+      "spriteSize": "{70, 72}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{640, 236}, {70, 72}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0016.png": {
+      "aliases": [
+        "SaurianElite_0017.png"
+      ],
+      "spriteColorRect": "{{30, 20}, {72, 72}}",
+      "spriteOffset": "{-8, -4}",
+      "spriteSize": "{72, 72}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{608, 312}, {72, 72}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0018.png": {
+      "aliases": [],
+      "spriteColorRect": "{{27, 20}, {76, 70}}",
+      "spriteOffset": "{-9, -3}",
+      "spriteSize": "{76, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{500, 0}, {70, 76}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0019.png": {
+      "aliases": [
+        "SaurianElite_0020.png"
+      ],
+      "spriteColorRect": "{{23, 22}, {82, 68}}",
+      "spriteOffset": "{-10, -4}",
+      "spriteSize": "{82, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{308, 362}, {68, 82}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0021.png": {
+      "aliases": [
+        "SaurianElite_0022.png"
+      ],
+      "spriteColorRect": "{{20, 27}, {88, 64}}",
+      "spriteOffset": "{-10, -7}",
+      "spriteSize": "{88, 64}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{294, 0}, {64, 88}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0023.png": {
+      "aliases": [
+        "SaurianElite_0024.png"
+      ],
+      "spriteColorRect": "{{43, 26}, {64, 72}}",
+      "spriteOffset": "{1, -10}",
+      "spriteSize": "{64, 72}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{646, 0}, {64, 72}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0025.png": {
+      "aliases": [
+        "SaurianElite_0026.png"
+      ],
+      "spriteColorRect": "{{42, 22}, {66, 76}}",
+      "spriteOffset": "{1, -8}",
+      "spriteSize": "{66, 76}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{448, 334}, {66, 76}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0027.png": {
+      "aliases": [
+        "SaurianElite_0028.png"
+      ],
+      "spriteColorRect": "{{39, 21}, {72, 74}}",
+      "spriteOffset": "{1, -6}",
+      "spriteSize": "{72, 74}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{572, 0}, {72, 74}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0029.png": {
+      "aliases": [],
+      "spriteColorRect": "{{38, 21}, {74, 74}}",
+      "spriteOffset": "{1, -6}",
+      "spriteSize": "{74, 74}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{568, 160}, {74, 74}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0030.png": {
+      "aliases": [
+        "SaurianElite_0031.png"
+      ],
+      "spriteColorRect": "{{37, 23}, {76, 72}}",
+      "spriteOffset": "{1, -7}",
+      "spriteSize": "{76, 72}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{436, 426}, {72, 76}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0032.png": {
+      "aliases": [
+        "SaurianElite_0033.png"
+      ],
+      "spriteColorRect": "{{42, 28}, {68, 70}}",
+      "spriteOffset": "{2, -11}",
+      "spriteSize": "{68, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{712, 222}, {68, 70}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0034.png": {
+      "aliases": [
+        "SaurianElite_0035.png"
+      ],
+      "spriteColorRect": "{{43, 26}, {64, 72}}",
+      "spriteOffset": "{1, -10}",
+      "spriteSize": "{64, 72}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{644, 76}, {64, 72}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0036.png": {
+      "aliases": [
+        "SaurianElite_0037.png"
+      ],
+      "spriteColorRect": "{{42, 22}, {66, 76}}",
+      "spriteOffset": "{1, -8}",
+      "spriteSize": "{66, 76}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{510, 412}, {66, 76}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0038.png": {
+      "aliases": [
+        "SaurianElite_0039.png"
+      ],
+      "spriteColorRect": "{{39, 21}, {72, 74}}",
+      "spriteOffset": "{1, -6}",
+      "spriteSize": "{72, 74}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{570, 78}, {72, 74}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0040.png": {
+      "aliases": [],
+      "spriteColorRect": "{{38, 21}, {74, 74}}",
+      "spriteOffset": "{1, -6}",
+      "spriteSize": "{74, 74}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{578, 400}, {74, 74}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0041.png": {
+      "aliases": [
+        "SaurianElite_0042.png"
+      ],
+      "spriteColorRect": "{{37, 23}, {76, 72}}",
+      "spriteOffset": "{1, -7}",
+      "spriteSize": "{76, 72}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{442, 256}, {72, 76}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0043.png": {
+      "aliases": [
+        "SaurianElite_0044.png"
+      ],
+      "spriteColorRect": "{{42, 28}, {68, 70}}",
+      "spriteOffset": "{2, -11}",
+      "spriteSize": "{68, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{712, 0}, {68, 70}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0045.png": {
+      "aliases": [
+        "SaurianElite_0046.png"
+      ],
+      "spriteColorRect": "{{43, 26}, {64, 64}}",
+      "spriteOffset": "{1, -6}",
+      "spriteSize": "{64, 64}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{796, 366}, {64, 64}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0047.png": {
+      "aliases": [
+        "SaurianElite_0048.png"
+      ],
+      "spriteColorRect": "{{43, 22}, {66, 68}}",
+      "spriteOffset": "{2, -4}",
+      "spriteSize": "{66, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{850, 0}, {66, 68}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0049.png": {
+      "aliases": [
+        "SaurianElite_0050.png"
+      ],
+      "spriteColorRect": "{{41, 20}, {70, 70}}",
+      "spriteOffset": "{2, -3}",
+      "spriteSize": "{70, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{644, 150}, {70, 70}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0051.png": {
+      "aliases": [],
+      "spriteColorRect": "{{40, 20}, {72, 70}}",
+      "spriteOffset": "{2, -3}",
+      "spriteSize": "{72, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{654, 386}, {70, 72}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0052.png": {
+      "aliases": [
+        "SaurianElite_0053.png"
+      ],
+      "spriteColorRect": "{{43, 23}, {66, 68}}",
+      "spriteOffset": "{2, -5}",
+      "spriteSize": "{66, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{782, 0}, {66, 68}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0054.png": {
+      "aliases": [
+        "SaurianElite_0055.png"
+      ],
+      "spriteColorRect": "{{42, 27}, {66, 64}}",
+      "spriteOffset": "{1, -7}",
+      "spriteSize": "{66, 64}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{918, 0}, {66, 64}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0056.png": {
+      "aliases": [
+        "SaurianElite_0057.png"
+      ],
+      "spriteColorRect": "{{43, 26}, {64, 64}}",
+      "spriteOffset": "{1, -6}",
+      "spriteSize": "{64, 64}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{914, 196}, {64, 64}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0058.png": {
+      "aliases": [
+        "SaurianElite_0059.png"
+      ],
+      "spriteColorRect": "{{43, 22}, {66, 68}}",
+      "spriteOffset": "{2, -4}",
+      "spriteSize": "{66, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{782, 70}, {66, 68}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0060.png": {
+      "aliases": [
+        "SaurianElite_0061.png"
+      ],
+      "spriteColorRect": "{{41, 20}, {70, 70}}",
+      "spriteOffset": "{2, -3}",
+      "spriteSize": "{70, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{710, 74}, {70, 70}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0062.png": {
+      "aliases": [],
+      "spriteColorRect": "{{40, 20}, {72, 70}}",
+      "spriteOffset": "{2, -3}",
+      "spriteSize": "{72, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{682, 310}, {70, 72}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0063.png": {
+      "aliases": [
+        "SaurianElite_0064.png"
+      ],
+      "spriteColorRect": "{{43, 23}, {66, 68}}",
+      "spriteOffset": "{2, -5}",
+      "spriteSize": "{66, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{784, 140}, {66, 68}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0065.png": {
+      "aliases": [
+        "SaurianElite_0066.png"
+      ],
+      "spriteColorRect": "{{42, 27}, {66, 64}}",
+      "spriteOffset": "{1, -7}",
+      "spriteSize": "{66, 64}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{918, 66}, {66, 64}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0067.png": {
+      "aliases": [],
+      "spriteColorRect": "{{25, 24}, {80, 66}}",
+      "spriteOffset": "{-9, -5}",
+      "spriteSize": "{80, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{430, 84}, {66, 80}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0068.png": {
+      "aliases": [
+        "SaurianElite_0069.png"
+      ],
+      "spriteColorRect": "{{25, 24}, {80, 66}}",
+      "spriteOffset": "{-9, -5}",
+      "spriteSize": "{80, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{308, 446}, {80, 66}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0070.png": {
+      "aliases": [
+        "SaurianElite_0071.png"
+      ],
+      "spriteColorRect": "{{24, 23}, {82, 70}}",
+      "spriteOffset": "{-9, -6}",
+      "spriteSize": "{82, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{356, 180}, {70, 82}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0072.png": {
+      "aliases": [
+        "SaurianElite_0073.png"
+      ],
+      "spriteColorRect": "{{19, 23}, {88, 68}}",
+      "spriteOffset": "{-11, -5}",
+      "spriteSize": "{88, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{220, 96}, {68, 88}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0074.png": {
+      "aliases": [
+        "SaurianElite_0075.png"
+      ],
+      "spriteColorRect": "{{2, 23}, {104, 68}}",
+      "spriteOffset": "{-20, -5}",
+      "spriteSize": "{104, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{78, 108}, {68, 104}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0076.png": {
+      "aliases": [
+        "SaurianElite_0077.png"
+      ],
+      "spriteColorRect": "{{53, 20}, {82, 70}}",
+      "spriteOffset": "{20, -3}",
+      "spriteSize": "{82, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{358, 90}, {70, 82}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0078.png": {
+      "aliases": [
+        "SaurianElite_0079.png"
+      ],
+      "spriteColorRect": "{{53, 26}, {84, 66}}",
+      "spriteOffset": "{21, -7}",
+      "spriteSize": "{84, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{306, 276}, {66, 84}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0080.png": {
+      "aliases": [
+        "SaurianElite_0081.png"
+      ],
+      "spriteColorRect": "{{54, 26}, {84, 68}}",
+      "spriteOffset": "{22, -8}",
+      "spriteSize": "{84, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{238, 366}, {68, 84}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0082.png": {
+      "aliases": [
+        "SaurianElite_0083.png"
+      ],
+      "spriteColorRect": "{{51, 26}, {90, 68}}",
+      "spriteOffset": "{22, -8}",
+      "spriteSize": "{90, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{78, 318}, {68, 90}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0084.png": {
+      "aliases": [
+        "SaurianElite_0085.png"
+      ],
+      "spriteColorRect": "{{38, 25}, {102, 70}}",
+      "spriteOffset": "{15, -8}",
+      "spriteSize": "{102, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{78, 214}, {70, 102}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0086.png": {
+      "aliases": [],
+      "spriteColorRect": "{{25, 24}, {80, 66}}",
+      "spriteOffset": "{-9, -5}",
+      "spriteSize": "{80, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{428, 174}, {66, 80}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0087.png": {
+      "aliases": [
+        "SaurianElite_0088.png"
+      ],
+      "spriteColorRect": "{{25, 24}, {80, 66}}",
+      "spriteOffset": "{-9, -5}",
+      "spriteSize": "{80, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{374, 264}, {66, 80}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0089.png": {
+      "aliases": [
+        "SaurianElite_0090.png"
+      ],
+      "spriteColorRect": "{{24, 23}, {76, 70}}",
+      "spriteOffset": "{-12, -6}",
+      "spriteSize": "{76, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{498, 82}, {70, 76}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0091.png": {
+      "aliases": [
+        "SaurianElite_0092.png"
+      ],
+      "spriteColorRect": "{{19, 23}, {78, 68}}",
+      "spriteOffset": "{-16, -5}",
+      "spriteSize": "{78, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{378, 346}, {68, 78}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0093.png": {
+      "aliases": [
+        "SaurianElite_0094.png"
+      ],
+      "spriteColorRect": "{{2, 21}, {94, 70}}",
+      "spriteOffset": "{-25, -4}",
+      "spriteSize": "{94, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{152, 0}, {70, 94}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0095.png": {
+      "aliases": [
+        "SaurianElite_0096.png"
+      ],
+      "spriteColorRect": "{{53, 3}, {88, 88}}",
+      "spriteOffset": "{23, 5}",
+      "spriteSize": "{88, 88}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{148, 318}, {88, 88}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0097.png": {
+      "aliases": [
+        "SaurianElite_0098.png"
+      ],
+      "spriteColorRect": "{{53, 26}, {88, 66}}",
+      "spriteOffset": "{23, -7}",
+      "spriteSize": "{88, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{288, 186}, {66, 88}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0099.png": {
+      "aliases": [
+        "SaurianElite_0100.png"
+      ],
+      "spriteColorRect": "{{54, 26}, {88, 68}}",
+      "spriteOffset": "{24, -8}",
+      "spriteSize": "{88, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{168, 408}, {68, 88}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0101.png": {
+      "aliases": [
+        "SaurianElite_0102.png"
+      ],
+      "spriteColorRect": "{{37, 26}, {108, 76}}",
+      "spriteOffset": "{17, -12}",
+      "spriteSize": "{108, 76}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{0, 288}, {76, 108}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0103.png": {
+      "aliases": [
+        "SaurianElite_0104.png"
+      ],
+      "spriteColorRect": "{{2, 21}, {142, 76}}",
+      "spriteOffset": "{-1, -7}",
+      "spriteSize": "{142, 76}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{0, 144}, {76, 142}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0105.png": {
+      "aliases": [
+        "SaurianElite_0115.png",
+        "SaurianElite_0116.png",
+        "SaurianElite_0106.png"
+      ],
+      "spriteColorRect": "{{53, 3}, {88, 88}}",
+      "spriteOffset": "{23, 5}",
+      "spriteSize": "{88, 88}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{78, 410}, {88, 88}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0107.png": {
+      "aliases": [
+        "SaurianElite_0108.png"
+      ],
+      "spriteColorRect": "{{53, 26}, {88, 66}}",
+      "spriteOffset": "{23, -7}",
+      "spriteSize": "{88, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{290, 90}, {66, 88}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0109.png": {
+      "aliases": [
+        "SaurianElite_0110.png"
+      ],
+      "spriteColorRect": "{{54, 26}, {88, 68}}",
+      "spriteOffset": "{24, -8}",
+      "spriteSize": "{88, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{224, 0}, {68, 88}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0111.png": {
+      "aliases": [
+        "SaurianElite_0112.png"
+      ],
+      "spriteColorRect": "{{37, 26}, {108, 76}}",
+      "spriteOffset": "{17, -12}",
+      "spriteSize": "{108, 76}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{0, 398}, {76, 108}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0113.png": {
+      "aliases": [
+        "SaurianElite_0114.png"
+      ],
+      "spriteColorRect": "{{2, 21}, {142, 76}}",
+      "spriteOffset": "{-1, -7}",
+      "spriteSize": "{142, 76}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{0, 0}, {76, 142}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0117.png": {
+      "aliases": [
+        "SaurianElite_0118.png"
+      ],
+      "spriteColorRect": "{{53, 26}, {88, 66}}",
+      "spriteOffset": "{23, -7}",
+      "spriteSize": "{88, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{220, 186}, {66, 88}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0119.png": {
+      "aliases": [
+        "SaurianElite_0120.png"
+      ],
+      "spriteColorRect": "{{54, 26}, {88, 68}}",
+      "spriteOffset": "{24, -8}",
+      "spriteSize": "{88, 68}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{150, 204}, {68, 88}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0121.png": {
+      "aliases": [
+        "SaurianElite_0122.png"
+      ],
+      "spriteColorRect": "{{51, 26}, {94, 70}}",
+      "spriteOffset": "{24, -9}",
+      "spriteSize": "{94, 70}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{148, 108}, {70, 94}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0123.png": {
+      "aliases": [
+        "SaurianElite_0124.png"
+      ],
+      "spriteColorRect": "{{38, 25}, {106, 72}}",
+      "spriteOffset": "{17, -9}",
+      "spriteSize": "{106, 72}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{78, 0}, {72, 106}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0125.png": {
+      "aliases": [],
+      "spriteColorRect": "{{25, 24}, {80, 66}}",
+      "spriteOffset": "{-9, -5}",
+      "spriteSize": "{80, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{432, 0}, {66, 80}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0126.png": {
+      "aliases": [
+        "SaurianElite_0127.png"
+      ],
+      "spriteColorRect": "{{37, 29}, {64, 66}}",
+      "spriteOffset": "{-5, -10}",
+      "spriteSize": "{64, 66}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{850, 70}, {64, 66}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0128.png": {
+      "aliases": [
+        "SaurianElite_0129.png"
+      ],
+      "spriteColorRect": "{{37, 34}, {66, 60}}",
+      "spriteOffset": "{-4, -12}",
+      "spriteSize": "{66, 60}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{852, 138}, {60, 66}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0130.png": {
+      "aliases": [
+        "SaurianElite_0131.png"
+      ],
+      "spriteColorRect": "{{37, 31}, {66, 62}}",
+      "spriteOffset": "{-4, -10}",
+      "spriteSize": "{66, 62}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{916, 132}, {66, 62}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0132.png": {
+      "aliases": [
+        "SaurianElite_0134.png",
+        "SaurianElite_0133.png",
+        "SaurianElite_0135.png"
+      ],
+      "spriteColorRect": "{{37, 33}, {68, 60}}",
+      "spriteOffset": "{-3, -11}",
+      "spriteSize": "{68, 60}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{238, 452}, {68, 60}}",
+      "textureRotated": false
+    },
+    "SaurianElite_0136.png": {
+      "aliases": [],
+      "spriteColorRect": "{{37, 37}, {70, 56}}",
+      "spriteOffset": "{-2, -13}",
+      "spriteSize": "{70, 56}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{754, 294}, {56, 70}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0137.png": {
+      "aliases": [
+        "SaurianElite_0138.png"
+      ],
+      "spriteColorRect": "{{49, 51}, {76, 50}}",
+      "spriteOffset": "{13, -24}",
+      "spriteSize": "{76, 50}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{516, 244}, {50, 76}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0139.png": {
+      "aliases": [
+        "SaurianElite_0140.png"
+      ],
+      "spriteColorRect": "{{50, 58}, {76, 42}}",
+      "spriteOffset": "{14, -27}",
+      "spriteSize": "{76, 42}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{564, 322}, {42, 76}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0141.png": {
+      "aliases": [
+        "SaurianElite_0142.png"
+      ],
+      "spriteColorRect": "{{50, 56}, {76, 46}}",
+      "spriteOffset": "{14, -27}",
+      "spriteSize": "{76, 46}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{516, 322}, {46, 76}}",
+      "textureRotated": true
+    },
+    "SaurianElite_0143.png": {
+      "aliases": [
+        "SaurianElite_0144.png"
+      ],
+      "spriteColorRect": "{{50, 57}, {78, 44}}",
+      "spriteOffset": "{15, -27}",
+      "spriteSize": "{78, 44}",
+      "spriteSourceSize": "{148, 104}",
+      "spriteTrimmed": true,
+      "textureRect": "{{390, 426}, {44, 78}}",
+      "textureRotated": true
     }
-  ],
-  "layers": [
-    {
-      "name": "Ground",
-      "width": 50,
-      "height": 50,
-      "offsetx": 0,
-      "offsety": 0,
-      "data": {
-        "encoding": "csv",
-        "text": "\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,445,5,5,443,443,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,443,173,168,165,168,165,170,443,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,172,148,70,26,73,21,101,170,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,141,9,21,86,74,10,25,102,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,444,5,5,5,5,443,174,178,178,178,177,443,443,5,5,5,5,5,5,5,5,5,5,5,5,158,77,435,22,1,432,73,39,445,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,174,178,178,178,178,177,174,194,438,439,437,242,177,5,444,174,178,177,445,5,5,5,5,5,5,5,445,142,15,30,89,85,70,43,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,444,190,439,438,437,437,242,194,437,437,439,438,3,242,176,170,190,439,242,177,5,5,5,5,5,5,5,5,5,444,158,79,13,22,106,5,5,5,5,\n5,5,5,5,5,5,5,5,172,166,443,445,190,437,257,254,437,438,437,438,439,439,437,439,439,226,115,194,437,439,241,445,5,5,5,5,5,5,5,5,5,5,443,142,31,110,5,5,5,5,\n5,5,5,5,5,5,5,444,141,44,178,177,190,439,239,181,252,250,3,439,438,439,437,439,439,439,439,437,437,437,242,178,177,445,5,5,5,5,5,5,5,5,5,5,443,444,5,5,5,5,\n5,5,5,5,5,5,444,174,163,131,437,239,182,437,210,52,163,131,438,439,439,439,438,439,438,437,439,437,437,438,439,439,242,178,178,177,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,445,443,174,194,438,438,438,210,68,439,439,3,438,438,437,437,439,437,439,439,439,438,438,3,439,437,437,438,439,438,437,242,178,177,444,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,172,164,182,439,439,439,437,438,439,438,438,438,439,439,439,439,437,437,439,438,438,438,439,437,438,439,437,437,439,438,439,438,438,241,444,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,142,14,59,254,439,439,439,439,439,439,438,438,3,437,437,439,439,437,437,439,437,3,437,438,438,438,437,439,437,439,437,439,437,241,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,444,156,101,186,437,439,437,439,439,438,439,438,438,438,438,3,3,439,438,438,438,438,439,437,438,437,439,438,438,439,438,438,439,242,177,444,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,445,142,30,122,254,3,437,438,439,438,438,438,439,439,437,439,437,438,437,438,439,437,438,438,438,437,437,438,437,437,437,438,439,437,242,175,166,444,5,5,5,5,5,5,5,5,\n5,5,5,5,5,173,152,100,182,437,438,437,438,437,439,438,439,439,438,439,438,437,438,438,439,439,437,438,437,3,438,437,437,437,439,437,439,439,438,210,52,177,5,5,5,5,5,5,5,5,\n5,5,5,5,443,158,78,11,63,253,253,254,437,437,439,437,437,438,438,439,437,438,439,439,437,439,437,438,439,438,439,437,439,438,437,439,439,439,439,3,439,241,445,5,5,5,5,5,5,5,\n5,5,5,5,5,5,158,109,169,170,172,181,254,437,438,438,438,438,438,439,437,438,439,439,437,439,437,438,3,438,438,3,438,438,438,438,439,437,439,437,438,242,177,443,5,5,5,5,5,5,\n5,5,5,5,5,444,443,158,92,101,136,39,190,3,439,438,437,437,437,437,439,439,439,439,437,439,3,437,439,438,439,438,3,439,439,439,439,438,439,439,438,438,242,177,5,5,5,5,5,5,\n5,5,5,5,5,5,5,173,137,27,79,47,190,438,437,439,437,439,437,439,3,438,3,438,437,437,438,438,438,437,439,439,437,439,439,437,437,437,439,437,3,438,438,241,5,5,5,5,5,5,\n5,5,5,5,5,5,5,158,94,109,168,166,190,438,437,437,437,438,437,439,437,3,438,439,439,439,438,437,439,439,437,438,3,438,438,437,439,439,438,439,437,438,437,241,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,445,158,79,48,194,437,439,439,439,437,438,437,437,438,438,439,438,439,438,437,437,437,3,439,3,437,438,439,438,3,439,439,438,437,257,237,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,172,164,181,254,438,438,439,438,439,438,438,437,437,438,3,437,438,438,438,439,437,3,437,439,439,437,438,3,3,3,437,439,257,237,444,443,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,142,14,41,182,439,439,439,437,438,437,438,437,439,437,439,438,438,439,437,437,438,439,437,438,3,437,438,437,3,439,439,437,241,444,443,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,158,79,63,254,437,437,439,439,437,437,438,439,437,439,438,438,439,438,437,438,437,438,437,439,437,439,438,438,437,257,253,237,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,444,5,190,437,439,439,439,437,439,438,437,439,439,3,438,439,439,439,437,439,438,439,438,437,438,438,437,257,237,444,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,443,189,253,254,437,439,439,437,437,438,437,438,437,437,439,437,3,437,439,439,437,439,439,437,439,437,241,445,445,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,444,445,189,254,437,439,437,438,439,3,439,437,437,439,439,437,437,437,439,437,438,438,439,438,437,241,443,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,444,190,439,437,438,437,437,439,439,438,438,439,437,437,438,438,3,438,438,437,439,437,257,237,444,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,189,253,254,438,439,437,437,257,254,437,438,438,437,257,253,253,253,253,253,253,253,237,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,445,444,189,253,254,437,257,237,189,253,254,437,438,241,444,444,444,5,5,443,444,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,445,189,253,237,444,444,5,189,253,253,237,5,444,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,\n5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5\n",
-        "ids": null
-      }
-    },
-    {
-      "name": "Fringe",
-      "width": 50,
-      "height": 50,
-      "offsetx": 0,
-      "offsety": 0,
-      "data": {
-        "encoding": "csv",
-        "text": "\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,513,514,515,516,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,507,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,517,518,519,0,0,0,0,0,0,0,0,0,0,465,466,467,0,0,0,0,0,0,0,0,0,507,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,531,532,533,534,535,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,465,466,467,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,465,466,467,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,520,521,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,465,466,467,0,0,0,0,0,468,469,470,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,524,525,526,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,465,466,467,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,468,469,470,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0\n",
-        "ids": null
-      }
-    },
-    {
-      "name": "Over",
-      "width": 50,
-      "height": 50,
-      "offsetx": 0,
-      "offsety": 0,
-      "data": {
-        "encoding": "csv",
-        "text":"\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,508,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,\n0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,<message truncated>
+  },
+  "metadata": {
+    "version": "1.5.3",
+    "format": 3,
+    "size": "{1024, 512}",
+    "name": "enemies_underground_2-HD.zwd",
+    "premultipliedAlpha": false,
+    "target": {
+      "name": "default",
+      "textureFileName": "enemies_underground_2-hd",
+      "textureFileExtension": ".png",
+      "coordinatesFileName": "enemies_underground_2-hd",
+      "coordinatesFileExtension": ".plist",
+      "premultipliedAlpha": false
+    }
+  }
+}

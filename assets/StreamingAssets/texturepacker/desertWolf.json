@@ -1,0 +1,38 @@
+{
+	"name": "desertWorlf",
+	"framename": "desertWolf_0%03d.png",
+	"file": "enemies_desert-hd.png",
+	"framerate": 25,
+	"clips": [
+		{
+			"name": "death",
+			"start": 69,
+			"end": 86
+		},
+		{
+			"name": "runup",
+			"start": 11,
+			"end": 30
+		},
+		{
+			"name": "runleft",
+			"start": 1,
+			"end": 10
+		},
+		{
+			"name": "rundown",
+			"start": 1,
+			"end": 10
+		},
+		{
+			"name": "runright",
+			"start": 1,
+			"end": 10
+		},
+		{
+			"name": "attack",
+			"start": 31,
+			"end": 43
+		}
+	]
+}
