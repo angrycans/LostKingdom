@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
 /*
 {
@@ -24,7 +23,7 @@ namespace Acans.Animation
     public string file;
     public int framerate;
 
-    public AniClip[] clips;
+    public List<AniClip> clips;
 
 
 

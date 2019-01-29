@@ -1,7 +1,7 @@
 {
 	"name": "desertWorlf",
-	"framename": "desertWolf_0%03d.png",
-	"file": "enemies_desert-hd.png",
+	"framename": "desertWolf_{0:0000}.png",
+	"file": "/texturepacker/enemies_desert-hd.ab",
 	"framerate": 25,
 	"clips": [
 		{

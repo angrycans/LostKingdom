@@ -49,6 +49,20 @@ namespace Acans.Tools
       return www;
     }
 
+    async static public Task<WWW> LoadABFromSteamAssets(string url)
+    {
+      string path = "";
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_IPHONE
+      path = "file://" + Application.streamingAssetsPath;
+#else
+          path =Application.streamingAssetsPath;
+#endif
+      Log.info("LoadFromSteamAssets", path + url);
+      var www = await new WWW(path + url);
+
+      return www;
+    }
+
 
   }
 }

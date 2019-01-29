@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using UniRx;
 using Acans.Tools;
 using System.Threading.Tasks;
-
+using Acans.Manager;
 namespace Acans.Animation
 {
   public class FrameAnimator : MonoBehaviour
@@ -16,11 +16,11 @@ namespace Acans.Animation
 
     public string name;
     public string filename;
-    public Sprite[] sprites;
-    private List<AnimationClip> animationClips;
-    private SpriteRenderer _spriteRenderer;
+    //public Sprite[] sprites;
+    public List<AnimationClip> animationClips = new List<AnimationClip>();
+    public SpriteRenderer _spriteRenderer;
     // [HideInInspector]
-    private AnimationClip currentAnimation, previousAnimation;
+    public AnimationClip currentAnimation = null, previousAnimation = null;
 
     async private void Awake()
     {
@@ -62,8 +62,58 @@ namespace Acans.Animation
 
       name = frameAnimationJson.name;
 
+      var ab = await FileUtils.LoadFromSteamAssets(frameAnimationJson.file);
+      ab.assetBundle.Unload(false);
+      // sprites = (tex as Sprite);
       //animationClips.Add()
 
+      Sprite[] spriteSheet = ab.assetBundle.LoadAssetWithSubAssets<Sprite>("enemies_desert-hd");
+      foreach (Sprite subSprite in spriteSheet)
+      {
+        Log.info("sprite=>", subSprite.name);
+        ResourceManager.Instance.addSprite(subSprite.name, subSprite);
+      }
+      Resources.UnloadUnusedAssets();
+
+
+      frameAnimationJson.clips.ForEach((item) =>
+      {
+
+        List<Sprite> _frames = new List<Sprite>();
+
+        Sprite last_sprite = null;
+        for (var i = item.start; i <= item.end; i++)
+        {
+          Log.info(string.Format(frameAnimationJson.framename, i));
+
+          Sprite _sprite = ResourceManager.Instance.getSprite(string.Format(frameAnimationJson.framename, i));
+          if (_sprite == null)
+          {
+            if (i == item.start)
+            {
+              Log.error("frameAnimation Load error,frames.firstframe is null");
+              break;
+            }
+            if (last_sprite)
+            {
+              _sprite = last_sprite;
+            }
+            else
+            {
+              Log.error("frameAnimation Load error,frames.last_sprite is null");
+            }
+
+          }
+          else
+          {
+            last_sprite = _sprite;
+          }
+          _frames.Add(_sprite);
+        }
+        AddAnimation(item.name, _frames, frameAnimationJson.framerate);
+      });
+      //PlayAnimation("runleft");
+      PlayAnimation("runup");
     }
     public void PlayAnimation(string Name)
     {
@@ -73,12 +123,12 @@ namespace Acans.Animation
 
     }
 
-    public void AddAnimation(string Name, Sprite[] Frames, int FrameRate = 30, bool Loop = true)
+    public void AddAnimation(string Name, List<Sprite> Frames, int FrameRate = 30, bool Loop = true)
     {
       AnimationClip newAnimation = new AnimationClip();
       newAnimation.name = Name;
       newAnimation.frames = Frames;
-      newAnimation.frameInterval = 1 / FrameRate;
+      newAnimation.fps = 1 / FrameRate;
       newAnimation.loop = Loop;
       animationClips.Add(newAnimation);
 
@@ -87,14 +137,17 @@ namespace Acans.Animation
     {
       if (currentAnimation != null)
       {
-        Log.info("FixedUpdate");
+        //Log.info("FixedUpdate", currentAnimation.name);
         if (previousAnimation == null) previousAnimation = currentAnimation;
         if (currentAnimation != previousAnimation)
         {
           currentAnimation.ResetIndex();
           previousAnimation = currentAnimation;
         }
+
         _spriteRenderer.sprite = currentAnimation.Animate(Time.deltaTime);
+
+
       }
 
     }

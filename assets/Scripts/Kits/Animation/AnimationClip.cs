@@ -3,18 +3,19 @@ using System;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
-
+using System.Collections.Generic;
 using Acans.Tools;
 namespace Acans.Animation
 {
 
-  [System.Serializable]
+  // [System.Serializable]
   public class AnimationClip
   {
     public string name;
 
-    public float frameInterval = MAX_FRAME_TIME;  // Counts time between frames
-    public Sprite[] frames;
+    public float fps = 0.1f;
+    private float frameInterval;  // Counts time between frames
+    public List<Sprite> frames = new List<Sprite>();
     public bool loop;
     private int index = 0;
     // public UnityEvent startEvents;
@@ -22,12 +23,13 @@ namespace Acans.Animation
     // Index of current frame
     [HideInInspector]
     public Sprite currentSprite;
-    private static readonly float MAX_FRAME_TIME = 0.1f;    // Time between frames
+    // private static readonly float MAX_FRAME_TIME = 0.04f;    // Time between frames
 
     private void Awake()
     {
       Log.info("AnimationClip Awake");
       currentSprite = frames[0];
+      frameInterval = fps;
     }
     public void ResetIndex()
     {
@@ -38,17 +40,17 @@ namespace Acans.Animation
       // Calls start event on frame 0
       //if (index == 0) startEvents.Invoke();
 
-      if (frames.Length > 1)
+      if (frames.Count > 1)
       {
         frameInterval -= delta;
 
         if (frameInterval <= 0)
         {
-          if (index < frames.Length - 1)
+          if (index < frames.Count - 1)
           {
             index++;
             currentSprite = frames[index];
-            if (index == frames.Length - 1)
+            if (index == frames.Count - 1)
             {
               if (loop) index = 0;
               else
@@ -58,11 +60,13 @@ namespace Acans.Animation
               }
             }
           }
-          frameInterval = MAX_FRAME_TIME;
+          frameInterval = fps;
         }
       }
       else
       {
+
+        Log.info("frames count", frames.Count);
         currentSprite = frames[0]; // Maybe could use List<> for frames and check hasNext() instead of a conditional for a one-frame animation?
       }
 
