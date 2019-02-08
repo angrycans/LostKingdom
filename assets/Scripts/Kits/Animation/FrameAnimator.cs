@@ -16,6 +16,8 @@ namespace Acans.Animation
 
     public string name;
     public string filename;
+    public int width;
+    public int height;
     //public Sprite[] sprites;
     public List<AnimationClip> animationClips = new List<AnimationClip>();
     public SpriteRenderer _spriteRenderer;
@@ -57,6 +59,8 @@ namespace Acans.Animation
       Objecter.Dump(frameAnimationJson);
 
       name = frameAnimationJson.name;
+      width = frameAnimationJson.width;
+      height = frameAnimationJson.height;
 
       var ab = await FileUtils.LoadFromSteamAssets(frameAnimationJson.file);
       ab.assetBundle.Unload(false);
@@ -115,6 +119,7 @@ namespace Acans.Animation
         currentAnimation.stop = true;
       }
 
+      transform.localScale = new Vector3(width, height, 1.0f);
       // PlayAnimation("runleft");
     }
     public void PlayAnimation(string Name)

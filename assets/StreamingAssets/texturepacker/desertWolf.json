@@ -3,6 +3,8 @@
 	"framename": "desertWolf_{0:0000}.png",
 	"file": "/texturepacker/enemies_desert-hd.ab",
 	"framerate": 25,
+	"width": 72,
+	"height": 64,
 	"clips": [
 		{
 			"name": "runleft",

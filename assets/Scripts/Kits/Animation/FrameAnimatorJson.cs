@@ -22,6 +22,8 @@ namespace Acans.Animation
     public string framename;
     public string file;
     public int framerate;
+    public int width;
+    public int height;
 
     public List<AniClip> clips;
 
