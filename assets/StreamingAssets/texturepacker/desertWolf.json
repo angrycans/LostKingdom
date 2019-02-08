@@ -5,24 +5,28 @@
 	"framerate": 25,
 	"clips": [
 		{
+			"name": "runleft",
+			"start": 1,
+			"end": 10,
+			"flip": "x"
+		},
+		{
 			"name": "death",
 			"start": 69,
-			"end": 86
+			"end": 86,
+			"flip": "inherit"
 		},
 		{
 			"name": "runup",
 			"start": 11,
-			"end": 30
-		},
-		{
-			"name": "runleft",
-			"start": 1,
-			"end": 10
+			"end": 30,
+			"flip": "inherit"
 		},
 		{
 			"name": "rundown",
 			"start": 1,
-			"end": 10
+			"end": 10,
+			"flip": "inherit"
 		},
 		{
 			"name": "runright",
@@ -32,7 +36,8 @@
 		{
 			"name": "attack",
 			"start": 31,
-			"end": 43
+			"end": 43,
+			"flip": "inherit"
 		}
 	]
 }

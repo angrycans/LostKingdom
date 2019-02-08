@@ -17,10 +17,20 @@ public class Test : Editor
       //本地测试：建议最后将Assetbundle放在StreamingAssets文件夹下，如果没有就创建一个，因为移动平台下只能读取这个路径
       //StreamingAssets是只读路径，不能写入
       //服务器下载：就不需要放在这里，服务器上客户端用www类进行下载。
-      string targetPath = Application.dataPath + "/StreamingAssets/" + obj.name + ".assetbundle";
+      string targetPath = Application.dataPath + "/StreamingAssets/" + obj.name + "_" + BuildTarget.iOS + ".ab";
+      if (BuildPipeline.BuildAssetBundle(obj, null, targetPath, BuildAssetBundleOptions.CollectDependencies, BuildTarget.iOS))
+      {
+        Debug.Log(obj.name + "ios资源打包成功");
+      }
+      else
+      {
+        Debug.Log(obj.name + "资源打包失败");
+      }
+
+      targetPath = Application.dataPath + "/StreamingAssets/" + obj.name + "_" + BuildTarget.StandaloneOSX + ".ab";
       if (BuildPipeline.BuildAssetBundle(obj, null, targetPath, BuildAssetBundleOptions.CollectDependencies, BuildTarget.StandaloneOSX))
       {
-        Debug.Log(obj.name + "资源打包成功");
+        Debug.Log(obj.name + "mac资源打包成功");
       }
       else
       {

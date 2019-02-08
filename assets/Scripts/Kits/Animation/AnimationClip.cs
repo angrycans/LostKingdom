@@ -7,8 +7,6 @@ using System.Collections.Generic;
 using Acans.Tools;
 namespace Acans.Animation
 {
-
-  // [System.Serializable]
   public class AnimationClip
   {
     public string name;
@@ -17,6 +15,15 @@ namespace Acans.Animation
     private float frameInterval;  // Counts time between frames
     public List<Sprite> frames = new List<Sprite>();
     public bool loop;
+    public bool stop = false;
+    /*
+      
+      "none" or ""  clear flip    default
+      "x"  flipx =true
+      "y"  flipy=true
+      "inherit"  inherit last flip
+     */
+    public string flip;
     private int index = 0;
     // public UnityEvent startEvents;
     // public UnityEvent finishEvents;
@@ -42,6 +49,10 @@ namespace Acans.Animation
 
       if (frames.Count > 1)
       {
+        if (stop)
+        {
+          return currentSprite ? currentSprite : frames[0];
+        }
         frameInterval -= delta;
 
         if (frameInterval <= 0)
@@ -50,11 +61,13 @@ namespace Acans.Animation
           {
             index++;
             currentSprite = frames[index];
+            //Log.info(index, delta, frameInterval, fps);
             if (index == frames.Count - 1)
             {
               if (loop) index = 0;
               else
               {
+
                 // Try something with finishTriggers here, if finishTriggers is even necessary in the first place
                 //finishEvents.Invoke();
               }

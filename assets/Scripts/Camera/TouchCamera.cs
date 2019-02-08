@@ -80,7 +80,7 @@ public class TouchCamera : MonoBehaviour
         float newTouchDistance = newTouchVector.magnitude;
 
         transform.position += transform.TransformDirection((Vector3)((oldTouchPositions[0] + oldTouchPositions[1] - screen) * Camera.main.orthographicSize / screen.y));
-        transform.localRotation *= Quaternion.Euler(new Vector3(0, 0, Mathf.Asin(Mathf.Clamp((oldTouchVector.y * newTouchVector.x - oldTouchVector.x * newTouchVector.y) / oldTouchDistance / newTouchDistance, -1f, 1f)) / 0.0174532924f));
+        // transform.localRotation *= Quaternion.Euler(new Vector3(0, 0, Mathf.Asin(Mathf.Clamp((oldTouchVector.y * newTouchVector.x - oldTouchVector.x * newTouchVector.y) / oldTouchDistance / newTouchDistance, -1f, 1f)) / 0.0174532924f));
         Camera.main.orthographicSize *= oldTouchDistance / newTouchDistance;
         transform.position -= transform.TransformDirection((newTouchPositions[0] + newTouchPositions[1] - screen) * Camera.main.orthographicSize / screen.y);
 

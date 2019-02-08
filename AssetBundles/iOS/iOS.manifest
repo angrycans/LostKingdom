@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 357936011
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: enemies_desert-hd.ab
+      Dependencies: {}

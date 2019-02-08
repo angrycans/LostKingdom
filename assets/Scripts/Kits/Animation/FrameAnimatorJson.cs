@@ -36,6 +36,7 @@ namespace Acans.Animation
     public int end;
 
     public string name;
+    public string flip;
 
 
   }

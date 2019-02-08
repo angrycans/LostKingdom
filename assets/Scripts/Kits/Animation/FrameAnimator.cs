@@ -25,10 +25,7 @@ namespace Acans.Animation
     async private void Awake()
     {
       //We don't want this stuff to execute at runtime
-
-
       await Load();
-
       if (gameObject.GetComponent<SpriteRenderer>() != null)
       {
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -37,7 +34,6 @@ namespace Acans.Animation
       {
         _spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
       }
-
     }
 
     async Task Load()
@@ -64,10 +60,14 @@ namespace Acans.Animation
 
       var ab = await FileUtils.LoadFromSteamAssets(frameAnimationJson.file);
       ab.assetBundle.Unload(false);
-      // sprites = (tex as Sprite);
-      //animationClips.Add()
 
       Sprite[] spriteSheet = ab.assetBundle.LoadAssetWithSubAssets<Sprite>("enemies_desert-hd");
+      if (spriteSheet.Length == 0)
+      {
+        Log.info("assetBundle.LoadAssetWithSubAssets load sprite[] is null");
+        return;
+      }
+
       foreach (Sprite subSprite in spriteSheet)
       {
         Log.info("sprite=>", subSprite.name);
@@ -78,14 +78,11 @@ namespace Acans.Animation
 
       frameAnimationJson.clips.ForEach((item) =>
       {
-
         List<Sprite> _frames = new List<Sprite>();
-
         Sprite last_sprite = null;
         for (var i = item.start; i <= item.end; i++)
         {
-          Log.info(string.Format(frameAnimationJson.framename, i));
-
+          //Log.info(string.Format(frameAnimationJson.framename, i));
           Sprite _sprite = ResourceManager.Instance.getSprite(string.Format(frameAnimationJson.framename, i));
           if (_sprite == null)
           {
@@ -102,7 +99,6 @@ namespace Acans.Animation
             {
               Log.error("frameAnimation Load error,frames.last_sprite is null");
             }
-
           }
           else
           {
@@ -110,26 +106,51 @@ namespace Acans.Animation
           }
           _frames.Add(_sprite);
         }
-        AddAnimation(item.name, _frames, frameAnimationJson.framerate);
+        AddAnimation(item.name, _frames, frameAnimationJson.framerate, item.flip != null ? item.flip : "");
       });
-      //PlayAnimation("runleft");
-      PlayAnimation("runup");
+
+      if (animationClips.Count > 0)
+      {
+        currentAnimation = animationClips[0];
+        currentAnimation.stop = true;
+      }
+
+      // PlayAnimation("runleft");
     }
     public void PlayAnimation(string Name)
     {
       //code to actually switch your animation state to the animation name specified that's stored in animList
       currentAnimation = animationClips.Find(item => item.name.Contains(Name));
-
+      currentAnimation.stop = false;
 
     }
 
-    public void AddAnimation(string Name, List<Sprite> Frames, int FrameRate = 30, bool Loop = true)
+    public void StopAnimation()
+    {
+      currentAnimation.stop = true;
+    }
+
+
+    public List<string> GetAnimation()
+    {
+      var names = new List<string>();
+      animationClips.ForEach((clip) =>
+      {
+        names.Add(clip.name);
+      });
+
+      return names;
+    }
+
+
+    public void AddAnimation(string Name, List<Sprite> Frames, int FrameRate = 30, string Flip = "", bool Loop = true)
     {
       AnimationClip newAnimation = new AnimationClip();
       newAnimation.name = Name;
       newAnimation.frames = Frames;
-      newAnimation.fps = 1 / FrameRate;
+      newAnimation.fps = 1 / (float)FrameRate;
       newAnimation.loop = Loop;
+      newAnimation.flip = Flip.ToLower();
       animationClips.Add(newAnimation);
 
     }
@@ -144,10 +165,28 @@ namespace Acans.Animation
           currentAnimation.ResetIndex();
           previousAnimation = currentAnimation;
         }
-
         _spriteRenderer.sprite = currentAnimation.Animate(Time.deltaTime);
 
+        switch (currentAnimation.flip)
+        {
+          case "":
+            _spriteRenderer.flipX = false;
+            _spriteRenderer.flipY = false;
+            break;
+          case "none":
+            _spriteRenderer.flipX = false;
+            _spriteRenderer.flipY = false;
+            break;
 
+          case "x":
+            _spriteRenderer.flipX = true;
+            break;
+          case "y":
+            _spriteRenderer.flipY = true;
+            break;
+          case "inherit":
+            break;
+        }
       }
 
     }
